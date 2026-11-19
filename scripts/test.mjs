@@ -100,6 +100,55 @@ test("a clean clone supports accounts, access control and the two-sided ticket w
 		b = await register("other"),
 		staff = await register("staff");
 	execFileSync(process.execPath, ["scripts/admin.mjs", staff.id], { env });
+	async function page(path, cookie, marker) {
+		const response = await fetch(origin + path, {
+			headers: { cookie: cookie ?? "" },
+			redirect: "manual",
+		});
+		assert.equal(response.status, 200, path);
+		const html = await response.text();
+		assert.ok(html.includes(marker), path + " missing " + marker);
+	}
+	await page("/zh/pricing", "", "获取免费源码");
+	await page("/zh/auth/sign-up", "", "sign-up-email");
+	const anonymous = await fetch(origin + "/zh/app", { redirect: "manual" });
+	assert.equal(
+		new URL(anonymous.headers.get("location"), origin).pathname,
+		"/zh/auth/sign-in",
+	);
+	const denied = await fetch(origin + "/zh/admin", {
+		headers: { cookie: b.cookie },
+		redirect: "manual",
+	});
+	assert.equal(
+		new URL(denied.headers.get("location"), origin).pathname,
+		"/zh/system/permission-denied",
+	);
+	await page("/app", a.cookie, "My workspace");
+	await page("/zh/app/assets", a.cookie, "上传文件");
+	await page("/zh/admin", staff.cookie, "注册趋势");
+	await page("/admin/users/dashboard", staff.cookie, "owner@example.test");
+	await page("/admin/users/" + a.id, staff.cookie, "owner@example.test");
+	await page("/zh/admin/roles", staff.cookie, "support");
+	await page("/zh/admin/permissions", staff.cookie, "support");
+	await page("/admin/config/auth", staff.cookie, "googleId");
+	await page("/zh/admin/config/email", staff.cookie, "smtpHost");
+	await page("/admin/config/storage", staff.cookie, "bucketName");
+	await page("/zh/setup", staff.cookie, "安装检查");
+	await page("/onboarding", staff.cookie, "Onboarding");
+	for (const excluded of [
+		"/admin/orders",
+		"/app/image",
+		"/app/video",
+		"/app/billing",
+	]) {
+		assert.equal(
+			(await fetch(origin + excluded, { headers: { cookie: staff.cookie } }))
+				.status,
+			404,
+			excluded,
+		);
+	}
 	assert.equal((await get("account")).status, 401);
 	assert.equal((await get("overview", b.cookie)).status, 403);
 	const created = await post(
@@ -109,6 +158,7 @@ test("a clean clone supports accounts, access control and the two-sided ticket w
 	);
 	assert.equal(created.status, 200, await created.clone().text());
 	const { id } = await created.json();
+	await page("/zh/admin/support/" + id, staff.cookie, "回复用户");
 	assert.equal((await get("tickets/" + id, b.cookie)).status, 404);
 	assert.equal(
 		(await post("/api/core/tickets/" + id, form({ message: "x" }), b.cookie))
@@ -171,6 +221,8 @@ test("a clean clone supports accounts, access control and the two-sided ticket w
 		const uploaded = await post("/api/core/files", file, a.cookie);
 		assert.equal(uploaded.status, 200, await uploaded.text());
 		const [asset] = await (await get("files", a.cookie)).json();
+		await page("/zh/app/assets/" + asset.id, a.cookie, "下载私有文件");
+		await page("/admin/assets", staff.cookie, asset.name);
 		assert.equal((await get("files/" + asset.id, b.cookie)).status, 404);
 		const download = await get("files/" + asset.id, a.cookie);
 		assert.equal(download.status, 302);

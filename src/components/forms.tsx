@@ -8,10 +8,14 @@ export function Form({
 	submit: (data: FormData) => Promise<unknown>;
 	button?: string;
 }) {
+	const zh =
+		typeof document !== "undefined" &&
+		document.documentElement.lang.startsWith("zh");
 	const [status, setStatus] = useState(""),
 		[busy, setBusy] = useState(false);
 	return (
 		<form
+			className="free-form"
 			onSubmit={async (e) => {
 				e.preventDefault();
 				if (busy) return;
@@ -20,7 +24,7 @@ export function Form({
 				setStatus("");
 				try {
 					await submit(new FormData(form));
-					setStatus("Saved.");
+					setStatus(zh ? "已保存。" : "Saved.");
 				} catch (e) {
 					setStatus(e instanceof Error ? e.message : "Could not save.");
 				} finally {
@@ -29,7 +33,9 @@ export function Form({
 			}}
 		>
 			{children}
-			<button disabled={busy}>{busy ? "Working…" : button}</button>
+			<button disabled={busy}>
+				{busy ? (zh ? "处理中…" : "Working…") : button}
+			</button>
 			{status && <output role="status">{status}</output>}
 		</form>
 	);
@@ -48,6 +54,7 @@ export async function auth(path: string, data: Record<string, unknown>) {
 		headers: { "content-type": "application/json" },
 		body: JSON.stringify(data),
 	});
+	if (res.status === 429) throw new Error("S13: Too many requests");
 	const body = await res.json();
 	if (!res.ok)
 		throw new Error(body.message || "Could not finish authentication.");

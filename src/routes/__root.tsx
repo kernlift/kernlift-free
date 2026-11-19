@@ -1,10 +1,11 @@
 import {
 	createRootRoute,
+	useRouterState,
 	HeadContent,
 	Outlet,
 	Scripts,
 } from "@tanstack/react-router";
-import css from "../style.css?url";
+import css from "../foundation.css?url";
 export const Route = createRootRoute({
 	head: () => ({
 		meta: [
@@ -12,10 +13,18 @@ export const Route = createRootRoute({
 			{ name: "viewport", content: "width=device-width,initial-scale=1" },
 			{ title: "Kernlift Free" },
 		],
-		links: [{ rel: "stylesheet", href: css }],
+		links: [
+			{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+			{ rel: "stylesheet", href: css },
+		],
 	}),
 	component: () => (
-		<html lang="en">
+		<html
+			lang={useRouterState({
+				select: (s) =>
+					/^\/zh(?:\/|$)/.test(s.location.pathname) ? "zh-CN" : "en",
+			})}
+		>
 			<head>
 				<HeadContent />
 			</head>

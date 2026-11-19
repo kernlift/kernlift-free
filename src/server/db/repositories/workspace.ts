@@ -102,7 +102,7 @@ export async function read(actor: Actor, section: string, id: string) {
 			allow(actor, "users");
 			return db
 				.prepare(
-					"SELECT (SELECT COUNT(*) FROM user) users,(SELECT COUNT(*) FROM ticket WHERE status='open') openTickets,(SELECT COUNT(*) FROM asset) files",
+					"SELECT (SELECT COUNT(*) FROM user) users,(SELECT COUNT(*) FROM ticket WHERE status<>'closed') openTickets,(SELECT COUNT(*) FROM asset) files",
 				)
 				.get();
 		case "countries":
@@ -180,7 +180,10 @@ export async function write(
 				};
 			if (!ticketFor(uid, id, staff)) reject(404, "Ticket not found");
 			if (form.has("message")) {
-				addReply(id, uid, text(form, "message", 4000));
+				transaction(() => {
+					addReply(id, uid, text(form, "message", 4000));
+					if (staff) log(uid, "ticket.replied", id);
+				});
 				if (staff) {
 					const recipient = db
 						.prepare(
@@ -255,6 +258,23 @@ export async function write(
 			}
 			return;
 		}
+		case "user-status": {
+			allow(actor, "users");
+			allow(actor, "access");
+			if (uid === id)
+				reject(400, "Use a second administrator to change your own access.");
+			if (!db.prepare("SELECT 1 FROM user WHERE id=?").get(id))
+				reject(404, "User not found");
+			transaction(() => {
+				access(id);
+				db.prepare("UPDATE profile SET disabled=? WHERE id=?").run(
+					Number(form.get("disabled") === "on"),
+					id,
+				);
+				log(uid, "account.status", id);
+			});
+			return;
+		}
 		case "users": {
 			allow(actor, "access");
 			allow(actor, "users");
@@ -267,6 +287,7 @@ export async function write(
 				reject(400, "Unknown role");
 			transaction(() => {
 				access(id);
+				db.prepare("DELETE FROM extra_role WHERE user_id=?").run(id);
 				db.prepare("UPDATE profile SET role=?, disabled=? WHERE id=?").run(
 					role,
 					Number(form.get("disabled") === "on"),

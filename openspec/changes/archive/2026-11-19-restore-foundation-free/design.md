@@ -1,0 +1,1 @@
+Use source-allowlisted template UI components, route guards and localized screens. Bind reads and writes to the existing SQLite repository. Derive registration and country statistics from real accounts. Retain SMTP and a single S3 adapter. Keep paid code and credentials outside this repository.

@@ -1,0 +1,2 @@
+- [x] Restore Free admin, account, support, file and configuration screens.
+- [x] Verify compatibility, locale routes, permissions, build and standalone installation.

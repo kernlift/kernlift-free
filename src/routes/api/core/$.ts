@@ -12,6 +12,7 @@ async function handle({ request }: { request: Request }) {
 			await getAuth();
 			const s = settings(true);
 			return Response.json({
+				emailPassword: s.emailPassword !== "off",
 				github: Boolean(s.githubId && s.githubSecret),
 				google: Boolean(s.googleId && s.googleSecret),
 				email: Boolean(s.smtpHost && s.mailFrom),

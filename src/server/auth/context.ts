@@ -38,12 +38,14 @@ export async function getAuth() {
 				: {}),
 		},
 		emailAndPassword: {
-			enabled: true,
+			enabled: s.emailPassword !== "off",
+			requireEmailVerification: s.requireVerification === "on",
 			minPasswordLength: 10,
 			sendResetPassword: ({ user, url }) =>
 				sendMail(user.email, "Reset your password", url),
 		},
 		emailVerification: {
+			sendOnSignIn: s.requireVerification === "on",
 			sendOnSignUp: Boolean(s.smtpHost && s.mailFrom),
 			sendVerificationEmail: ({ user, url }) =>
 				sendMail(user.email, "Verify your email", url),

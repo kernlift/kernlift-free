@@ -34,6 +34,10 @@ CREATE TABLE IF NOT EXISTS asset (id TEXT PRIMARY KEY,owner TEXT NOT NULL REFERE
 CREATE TABLE IF NOT EXISTS setting (key TEXT PRIMARY KEY,value TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS audit (id INTEGER PRIMARY KEY,actor TEXT NOT NULL,action TEXT NOT NULL,target TEXT NOT NULL,created TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
 `);
+db.exec(`CREATE TABLE IF NOT EXISTS ticket_detail(ticket TEXT PRIMARY KEY REFERENCES ticket(id) ON DELETE CASCADE,priority TEXT NOT NULL DEFAULT 'normal',sla TEXT NOT NULL DEFAULT 'within_sla',locale TEXT NOT NULL DEFAULT 'en');
+CREATE TABLE IF NOT EXISTS staff_note(id INTEGER PRIMARY KEY,ticket TEXT REFERENCES ticket(id) ON DELETE CASCADE,author TEXT,body TEXT,created TEXT DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS role_detail(role TEXT PRIMARY KEY REFERENCES role(name) ON DELETE CASCADE,label TEXT,description TEXT);
+CREATE TABLE IF NOT EXISTS extra_role(user_id TEXT REFERENCES user(id) ON DELETE CASCADE,role TEXT REFERENCES role(name) ON DELETE CASCADE,PRIMARY KEY(user_id,role));`);
 export const permissions = [
 	"users",
 	"access",
@@ -60,7 +64,18 @@ export function access(id: string) {
 		disabled: Boolean(row.disabled),
 		country: String(row.country),
 		notifications: Boolean(row.notifications),
-		permissions: JSON.parse(String(row.permissions)) as Permission[],
+		permissions: [
+			...new Set(
+				[
+					row,
+					...db
+						.prepare(
+							"SELECT r.permissions FROM role r JOIN extra_role e ON e.role=r.name WHERE e.user_id=?",
+						)
+						.all(id),
+				].flatMap((r) => JSON.parse(String(r.permissions)) as Permission[]),
+			),
+		],
 	};
 }
 export function log(actor: string, action: string, target: string) {
@@ -82,6 +97,8 @@ export function transaction<T>(work: () => T) {
 	}
 }
 export const settingsKeys = [
+	"emailPassword",
+	"requireVerification",
 	"smtpHost",
 	"smtpPort",
 	"smtpUser",
@@ -153,10 +170,35 @@ export function saveSettings(form: FormData, actor: string) {
 				"INSERT INTO setting VALUES (?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value",
 			).run(key, value);
 		}
+		const config = settings(true);
+		if (
+			config.requireVerification === "on" &&
+			!(config.mailFrom && config.smtpHost)
+		)
+			throw new Response("Configure SMTP before requiring verified email.", {
+				status: 400,
+			});
+		if (
+			config.emailPassword === "off" &&
+			!(
+				(config.githubId && config.githubSecret) ||
+				(config.googleId && config.googleSecret)
+			)
+		)
+			throw new Response(
+				"Configure a social sign-in provider before disabling password sign-in.",
+				{ status: 400 },
+			);
 		log(actor, "settings.updated", "providers");
 	});
 }
-export function createTicket(owner: string, title: string, message: string) {
+export function createTicket(
+	owner: string,
+	title: string,
+	message: string,
+	priority = "normal",
+	locale = "en",
+) {
 	return transaction(() => {
 		const id = randomUUID();
 		db.prepare("INSERT INTO ticket(id,owner,title) VALUES (?,?,?)").run(
@@ -165,6 +207,9 @@ export function createTicket(owner: string, title: string, message: string) {
 			title,
 		);
 		addReply(id, owner, message);
+		db.prepare(
+			"INSERT INTO ticket_detail(ticket,priority,locale) VALUES (?,?,?)",
+		).run(id, priority, locale);
 		return id;
 	});
 }

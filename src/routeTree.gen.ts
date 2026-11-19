@@ -9,21 +9,263 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SplatRouteImport } from './routes/$'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as Char123LocaleChar125RouteImport } from './routes/{-$locale}'
+import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
+import { Route as Char123LocaleChar125TermsRouteImport } from './routes/{-$locale}/terms'
+import { Route as Char123LocaleChar125SetupRouteImport } from './routes/{-$locale}/setup'
+import { Route as Char123LocaleChar125PrivacyRouteImport } from './routes/{-$locale}/privacy'
+import { Route as Char123LocaleChar125PricingRouteImport } from './routes/{-$locale}/pricing'
+import { Route as Char123LocaleChar125OnboardingRouteImport } from './routes/{-$locale}/onboarding'
+import { Route as Char123LocaleChar125ContactRouteImport } from './routes/{-$locale}/contact'
+import { Route as Char123LocaleChar125AuthRouteImport } from './routes/{-$locale}/auth'
+import { Route as Char123LocaleChar125AppRouteImport } from './routes/{-$locale}/app'
+import { Route as Char123LocaleChar125AdminRouteImport } from './routes/{-$locale}/admin'
+import { Route as Char123LocaleChar125AboutRouteImport } from './routes/{-$locale}/about'
+import { Route as Char123LocaleChar125AuthIndexRouteImport } from './routes/{-$locale}/auth/index'
+import { Route as Char123LocaleChar125AppIndexRouteImport } from './routes/{-$locale}/app/index'
+import { Route as Char123LocaleChar125AdminIndexRouteImport } from './routes/{-$locale}/admin/index'
+import { Route as Char123LocaleChar125SystemRateLimitedRouteImport } from './routes/{-$locale}/system/rate-limited'
+import { Route as Char123LocaleChar125SystemPermissionDeniedRouteImport } from './routes/{-$locale}/system/permission-denied'
+import { Route as Char123LocaleChar125SystemMaintenanceRouteImport } from './routes/{-$locale}/system/maintenance'
+import { Route as Char123LocaleChar125LegalTermsRouteImport } from './routes/{-$locale}/legal/terms'
+import { Route as Char123LocaleChar125LegalPrivacyRouteImport } from './routes/{-$locale}/legal/privacy'
+import { Route as Char123LocaleChar125AuthVerifyEmailRouteImport } from './routes/{-$locale}/auth/verify-email'
+import { Route as Char123LocaleChar125AuthSignUpRouteImport } from './routes/{-$locale}/auth/sign-up'
+import { Route as Char123LocaleChar125AuthSignInRouteImport } from './routes/{-$locale}/auth/sign-in'
+import { Route as Char123LocaleChar125AuthResetPasswordRouteImport } from './routes/{-$locale}/auth/reset-password'
+import { Route as Char123LocaleChar125AuthForgotPasswordRouteImport } from './routes/{-$locale}/auth/forgot-password'
+import { Route as Char123LocaleChar125AuthErrorRouteImport } from './routes/{-$locale}/auth/error'
+import { Route as Char123LocaleChar125AdminSupportRouteImport } from './routes/{-$locale}/admin/support'
+import { Route as Char123LocaleChar125AdminSetupRouteImport } from './routes/{-$locale}/admin/setup'
+import { Route as Char123LocaleChar125AdminSettingsRouteImport } from './routes/{-$locale}/admin/settings'
+import { Route as Char123LocaleChar125AdminRolesRouteImport } from './routes/{-$locale}/admin/roles'
+import { Route as Char123LocaleChar125AdminPermissionsRouteImport } from './routes/{-$locale}/admin/permissions'
+import { Route as Char123LocaleChar125AdminCountriesRouteImport } from './routes/{-$locale}/admin/countries'
+import { Route as Char123LocaleChar125AdminAuditRouteImport } from './routes/{-$locale}/admin/audit'
+import { Route as Char123LocaleChar125AdminAssetsRouteImport } from './routes/{-$locale}/admin/assets'
 import { Route as ApiCoreSplatRouteImport } from './routes/api/core/$'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as Char123LocaleChar125AppTicketsIndexRouteImport } from './routes/{-$locale}/app/tickets/index'
+import { Route as Char123LocaleChar125AppProfileIndexRouteImport } from './routes/{-$locale}/app/profile/index'
+import { Route as Char123LocaleChar125AppAssetsIndexRouteImport } from './routes/{-$locale}/app/assets/index'
+import { Route as Char123LocaleChar125AdminUsersIndexRouteImport } from './routes/{-$locale}/admin/users/index'
+import { Route as Char123LocaleChar125AppTicketsClosedRouteImport } from './routes/{-$locale}/app/tickets/closed'
+import { Route as Char123LocaleChar125AppTicketsTicketIdRouteImport } from './routes/{-$locale}/app/tickets/$ticketId'
+import { Route as Char123LocaleChar125AppProfileSessionsRouteImport } from './routes/{-$locale}/app/profile/sessions'
+import { Route as Char123LocaleChar125AppProfileNotificationPreferencesRouteImport } from './routes/{-$locale}/app/profile/notification-preferences'
+import { Route as Char123LocaleChar125AppProfileDeleteAccountRouteImport } from './routes/{-$locale}/app/profile/delete-account'
+import { Route as Char123LocaleChar125AppProfileConnectedAccountsRouteImport } from './routes/{-$locale}/app/profile/connected-accounts'
+import { Route as Char123LocaleChar125AppAssetsUploadRouteImport } from './routes/{-$locale}/app/assets/upload'
+import { Route as Char123LocaleChar125AppAssetsAssetIdRouteImport } from './routes/{-$locale}/app/assets/$assetId'
+import { Route as Char123LocaleChar125AdminUsersDashboardRouteImport } from './routes/{-$locale}/admin/users/dashboard'
+import { Route as Char123LocaleChar125AdminUsersUserIdRouteImport } from './routes/{-$locale}/admin/users/$userId'
+import { Route as Char123LocaleChar125AdminSupportTicketIdRouteImport } from './routes/{-$locale}/admin/support/$ticketId'
+import { Route as Char123LocaleChar125AdminConfigStorageRouteImport } from './routes/{-$locale}/admin/config/storage'
+import { Route as Char123LocaleChar125AdminConfigEmailRouteImport } from './routes/{-$locale}/admin/config/email'
+import { Route as Char123LocaleChar125AdminConfigAuthRouteImport } from './routes/{-$locale}/admin/config/auth'
 
-const SplatRoute = SplatRouteImport.update({
-  id: '/$',
-  path: '/$',
+const Char123LocaleChar125Route = Char123LocaleChar125RouteImport.update({
+  id: '/{-$locale}',
+  path: '/{-$locale}',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
+const Char123LocaleChar125IndexRoute =
+  Char123LocaleChar125IndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125TermsRoute =
+  Char123LocaleChar125TermsRouteImport.update({
+    id: '/terms',
+    path: '/terms',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125SetupRoute =
+  Char123LocaleChar125SetupRouteImport.update({
+    id: '/setup',
+    path: '/setup',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125PrivacyRoute =
+  Char123LocaleChar125PrivacyRouteImport.update({
+    id: '/privacy',
+    path: '/privacy',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125PricingRoute =
+  Char123LocaleChar125PricingRouteImport.update({
+    id: '/pricing',
+    path: '/pricing',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125OnboardingRoute =
+  Char123LocaleChar125OnboardingRouteImport.update({
+    id: '/onboarding',
+    path: '/onboarding',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125ContactRoute =
+  Char123LocaleChar125ContactRouteImport.update({
+    id: '/contact',
+    path: '/contact',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125AuthRoute =
+  Char123LocaleChar125AuthRouteImport.update({
+    id: '/auth',
+    path: '/auth',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125AppRoute = Char123LocaleChar125AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => Char123LocaleChar125Route,
 } as any)
+const Char123LocaleChar125AdminRoute =
+  Char123LocaleChar125AdminRouteImport.update({
+    id: '/admin',
+    path: '/admin',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125AboutRoute =
+  Char123LocaleChar125AboutRouteImport.update({
+    id: '/about',
+    path: '/about',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125AuthIndexRoute =
+  Char123LocaleChar125AuthIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => Char123LocaleChar125AuthRoute,
+  } as any)
+const Char123LocaleChar125AppIndexRoute =
+  Char123LocaleChar125AppIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AdminIndexRoute =
+  Char123LocaleChar125AdminIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125SystemRateLimitedRoute =
+  Char123LocaleChar125SystemRateLimitedRouteImport.update({
+    id: '/system/rate-limited',
+    path: '/system/rate-limited',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125SystemPermissionDeniedRoute =
+  Char123LocaleChar125SystemPermissionDeniedRouteImport.update({
+    id: '/system/permission-denied',
+    path: '/system/permission-denied',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125SystemMaintenanceRoute =
+  Char123LocaleChar125SystemMaintenanceRouteImport.update({
+    id: '/system/maintenance',
+    path: '/system/maintenance',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125LegalTermsRoute =
+  Char123LocaleChar125LegalTermsRouteImport.update({
+    id: '/legal/terms',
+    path: '/legal/terms',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125LegalPrivacyRoute =
+  Char123LocaleChar125LegalPrivacyRouteImport.update({
+    id: '/legal/privacy',
+    path: '/legal/privacy',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125AuthVerifyEmailRoute =
+  Char123LocaleChar125AuthVerifyEmailRouteImport.update({
+    id: '/verify-email',
+    path: '/verify-email',
+    getParentRoute: () => Char123LocaleChar125AuthRoute,
+  } as any)
+const Char123LocaleChar125AuthSignUpRoute =
+  Char123LocaleChar125AuthSignUpRouteImport.update({
+    id: '/sign-up',
+    path: '/sign-up',
+    getParentRoute: () => Char123LocaleChar125AuthRoute,
+  } as any)
+const Char123LocaleChar125AuthSignInRoute =
+  Char123LocaleChar125AuthSignInRouteImport.update({
+    id: '/sign-in',
+    path: '/sign-in',
+    getParentRoute: () => Char123LocaleChar125AuthRoute,
+  } as any)
+const Char123LocaleChar125AuthResetPasswordRoute =
+  Char123LocaleChar125AuthResetPasswordRouteImport.update({
+    id: '/reset-password',
+    path: '/reset-password',
+    getParentRoute: () => Char123LocaleChar125AuthRoute,
+  } as any)
+const Char123LocaleChar125AuthForgotPasswordRoute =
+  Char123LocaleChar125AuthForgotPasswordRouteImport.update({
+    id: '/forgot-password',
+    path: '/forgot-password',
+    getParentRoute: () => Char123LocaleChar125AuthRoute,
+  } as any)
+const Char123LocaleChar125AuthErrorRoute =
+  Char123LocaleChar125AuthErrorRouteImport.update({
+    id: '/error',
+    path: '/error',
+    getParentRoute: () => Char123LocaleChar125AuthRoute,
+  } as any)
+const Char123LocaleChar125AdminSupportRoute =
+  Char123LocaleChar125AdminSupportRouteImport.update({
+    id: '/support',
+    path: '/support',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminSetupRoute =
+  Char123LocaleChar125AdminSetupRouteImport.update({
+    id: '/setup',
+    path: '/setup',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminSettingsRoute =
+  Char123LocaleChar125AdminSettingsRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminRolesRoute =
+  Char123LocaleChar125AdminRolesRouteImport.update({
+    id: '/roles',
+    path: '/roles',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminPermissionsRoute =
+  Char123LocaleChar125AdminPermissionsRouteImport.update({
+    id: '/permissions',
+    path: '/permissions',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminCountriesRoute =
+  Char123LocaleChar125AdminCountriesRouteImport.update({
+    id: '/countries',
+    path: '/countries',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminAuditRoute =
+  Char123LocaleChar125AdminAuditRouteImport.update({
+    id: '/audit',
+    path: '/audit',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminAssetsRoute =
+  Char123LocaleChar125AdminAssetsRouteImport.update({
+    id: '/assets',
+    path: '/assets',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
 const ApiCoreSplatRoute = ApiCoreSplatRouteImport.update({
   id: '/api/core/$',
   path: '/api/core/$',
@@ -34,56 +276,692 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char123LocaleChar125AppTicketsIndexRoute =
+  Char123LocaleChar125AppTicketsIndexRouteImport.update({
+    id: '/tickets/',
+    path: '/tickets/',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AppProfileIndexRoute =
+  Char123LocaleChar125AppProfileIndexRouteImport.update({
+    id: '/profile/',
+    path: '/profile/',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AppAssetsIndexRoute =
+  Char123LocaleChar125AppAssetsIndexRouteImport.update({
+    id: '/assets/',
+    path: '/assets/',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AdminUsersIndexRoute =
+  Char123LocaleChar125AdminUsersIndexRouteImport.update({
+    id: '/users/',
+    path: '/users/',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AppTicketsClosedRoute =
+  Char123LocaleChar125AppTicketsClosedRouteImport.update({
+    id: '/tickets/closed',
+    path: '/tickets/closed',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AppTicketsTicketIdRoute =
+  Char123LocaleChar125AppTicketsTicketIdRouteImport.update({
+    id: '/tickets/$ticketId',
+    path: '/tickets/$ticketId',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AppProfileSessionsRoute =
+  Char123LocaleChar125AppProfileSessionsRouteImport.update({
+    id: '/profile/sessions',
+    path: '/profile/sessions',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AppProfileNotificationPreferencesRoute =
+  Char123LocaleChar125AppProfileNotificationPreferencesRouteImport.update({
+    id: '/profile/notification-preferences',
+    path: '/profile/notification-preferences',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AppProfileDeleteAccountRoute =
+  Char123LocaleChar125AppProfileDeleteAccountRouteImport.update({
+    id: '/profile/delete-account',
+    path: '/profile/delete-account',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AppProfileConnectedAccountsRoute =
+  Char123LocaleChar125AppProfileConnectedAccountsRouteImport.update({
+    id: '/profile/connected-accounts',
+    path: '/profile/connected-accounts',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AppAssetsUploadRoute =
+  Char123LocaleChar125AppAssetsUploadRouteImport.update({
+    id: '/assets/upload',
+    path: '/assets/upload',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AppAssetsAssetIdRoute =
+  Char123LocaleChar125AppAssetsAssetIdRouteImport.update({
+    id: '/assets/$assetId',
+    path: '/assets/$assetId',
+    getParentRoute: () => Char123LocaleChar125AppRoute,
+  } as any)
+const Char123LocaleChar125AdminUsersDashboardRoute =
+  Char123LocaleChar125AdminUsersDashboardRouteImport.update({
+    id: '/users/dashboard',
+    path: '/users/dashboard',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminUsersUserIdRoute =
+  Char123LocaleChar125AdminUsersUserIdRouteImport.update({
+    id: '/users/$userId',
+    path: '/users/$userId',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminSupportTicketIdRoute =
+  Char123LocaleChar125AdminSupportTicketIdRouteImport.update({
+    id: '/$ticketId',
+    path: '/$ticketId',
+    getParentRoute: () => Char123LocaleChar125AdminSupportRoute,
+  } as any)
+const Char123LocaleChar125AdminConfigStorageRoute =
+  Char123LocaleChar125AdminConfigStorageRouteImport.update({
+    id: '/config/storage',
+    path: '/config/storage',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminConfigEmailRoute =
+  Char123LocaleChar125AdminConfigEmailRouteImport.update({
+    id: '/config/email',
+    path: '/config/email',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
+const Char123LocaleChar125AdminConfigAuthRoute =
+  Char123LocaleChar125AdminConfigAuthRouteImport.update({
+    id: '/config/auth',
+    path: '/config/auth',
+    getParentRoute: () => Char123LocaleChar125AdminRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/$': typeof SplatRoute
+  '/{-$locale}': typeof Char123LocaleChar125RouteWithChildren
+  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/admin': typeof Char123LocaleChar125AdminRouteWithChildren
+  '/{-$locale}/app': typeof Char123LocaleChar125AppRouteWithChildren
+  '/{-$locale}/auth': typeof Char123LocaleChar125AuthRouteWithChildren
+  '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
+  '/{-$locale}/onboarding': typeof Char123LocaleChar125OnboardingRoute
+  '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
+  '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/setup': typeof Char123LocaleChar125SetupRoute
+  '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/core/$': typeof ApiCoreSplatRoute
+  '/{-$locale}/admin/assets': typeof Char123LocaleChar125AdminAssetsRoute
+  '/{-$locale}/admin/audit': typeof Char123LocaleChar125AdminAuditRoute
+  '/{-$locale}/admin/countries': typeof Char123LocaleChar125AdminCountriesRoute
+  '/{-$locale}/admin/permissions': typeof Char123LocaleChar125AdminPermissionsRoute
+  '/{-$locale}/admin/roles': typeof Char123LocaleChar125AdminRolesRoute
+  '/{-$locale}/admin/settings': typeof Char123LocaleChar125AdminSettingsRoute
+  '/{-$locale}/admin/setup': typeof Char123LocaleChar125AdminSetupRoute
+  '/{-$locale}/admin/support': typeof Char123LocaleChar125AdminSupportRouteWithChildren
+  '/{-$locale}/auth/error': typeof Char123LocaleChar125AuthErrorRoute
+  '/{-$locale}/auth/forgot-password': typeof Char123LocaleChar125AuthForgotPasswordRoute
+  '/{-$locale}/auth/reset-password': typeof Char123LocaleChar125AuthResetPasswordRoute
+  '/{-$locale}/auth/sign-in': typeof Char123LocaleChar125AuthSignInRoute
+  '/{-$locale}/auth/sign-up': typeof Char123LocaleChar125AuthSignUpRoute
+  '/{-$locale}/auth/verify-email': typeof Char123LocaleChar125AuthVerifyEmailRoute
+  '/{-$locale}/legal/privacy': typeof Char123LocaleChar125LegalPrivacyRoute
+  '/{-$locale}/legal/terms': typeof Char123LocaleChar125LegalTermsRoute
+  '/{-$locale}/system/maintenance': typeof Char123LocaleChar125SystemMaintenanceRoute
+  '/{-$locale}/system/permission-denied': typeof Char123LocaleChar125SystemPermissionDeniedRoute
+  '/{-$locale}/system/rate-limited': typeof Char123LocaleChar125SystemRateLimitedRoute
+  '/{-$locale}/admin/': typeof Char123LocaleChar125AdminIndexRoute
+  '/{-$locale}/app/': typeof Char123LocaleChar125AppIndexRoute
+  '/{-$locale}/auth/': typeof Char123LocaleChar125AuthIndexRoute
+  '/{-$locale}/admin/config/auth': typeof Char123LocaleChar125AdminConfigAuthRoute
+  '/{-$locale}/admin/config/email': typeof Char123LocaleChar125AdminConfigEmailRoute
+  '/{-$locale}/admin/config/storage': typeof Char123LocaleChar125AdminConfigStorageRoute
+  '/{-$locale}/admin/support/$ticketId': typeof Char123LocaleChar125AdminSupportTicketIdRoute
+  '/{-$locale}/admin/users/$userId': typeof Char123LocaleChar125AdminUsersUserIdRoute
+  '/{-$locale}/admin/users/dashboard': typeof Char123LocaleChar125AdminUsersDashboardRoute
+  '/{-$locale}/app/assets/$assetId': typeof Char123LocaleChar125AppAssetsAssetIdRoute
+  '/{-$locale}/app/assets/upload': typeof Char123LocaleChar125AppAssetsUploadRoute
+  '/{-$locale}/app/profile/connected-accounts': typeof Char123LocaleChar125AppProfileConnectedAccountsRoute
+  '/{-$locale}/app/profile/delete-account': typeof Char123LocaleChar125AppProfileDeleteAccountRoute
+  '/{-$locale}/app/profile/notification-preferences': typeof Char123LocaleChar125AppProfileNotificationPreferencesRoute
+  '/{-$locale}/app/profile/sessions': typeof Char123LocaleChar125AppProfileSessionsRoute
+  '/{-$locale}/app/tickets/$ticketId': typeof Char123LocaleChar125AppTicketsTicketIdRoute
+  '/{-$locale}/app/tickets/closed': typeof Char123LocaleChar125AppTicketsClosedRoute
+  '/{-$locale}/admin/users/': typeof Char123LocaleChar125AdminUsersIndexRoute
+  '/{-$locale}/app/assets/': typeof Char123LocaleChar125AppAssetsIndexRoute
+  '/{-$locale}/app/profile/': typeof Char123LocaleChar125AppProfileIndexRoute
+  '/{-$locale}/app/tickets/': typeof Char123LocaleChar125AppTicketsIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/$': typeof SplatRoute
+  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
+  '/{-$locale}/onboarding': typeof Char123LocaleChar125OnboardingRoute
+  '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
+  '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/setup': typeof Char123LocaleChar125SetupRoute
+  '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}': typeof Char123LocaleChar125IndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/core/$': typeof ApiCoreSplatRoute
+  '/{-$locale}/admin/assets': typeof Char123LocaleChar125AdminAssetsRoute
+  '/{-$locale}/admin/audit': typeof Char123LocaleChar125AdminAuditRoute
+  '/{-$locale}/admin/countries': typeof Char123LocaleChar125AdminCountriesRoute
+  '/{-$locale}/admin/permissions': typeof Char123LocaleChar125AdminPermissionsRoute
+  '/{-$locale}/admin/roles': typeof Char123LocaleChar125AdminRolesRoute
+  '/{-$locale}/admin/settings': typeof Char123LocaleChar125AdminSettingsRoute
+  '/{-$locale}/admin/setup': typeof Char123LocaleChar125AdminSetupRoute
+  '/{-$locale}/admin/support': typeof Char123LocaleChar125AdminSupportRouteWithChildren
+  '/{-$locale}/auth/error': typeof Char123LocaleChar125AuthErrorRoute
+  '/{-$locale}/auth/forgot-password': typeof Char123LocaleChar125AuthForgotPasswordRoute
+  '/{-$locale}/auth/reset-password': typeof Char123LocaleChar125AuthResetPasswordRoute
+  '/{-$locale}/auth/sign-in': typeof Char123LocaleChar125AuthSignInRoute
+  '/{-$locale}/auth/sign-up': typeof Char123LocaleChar125AuthSignUpRoute
+  '/{-$locale}/auth/verify-email': typeof Char123LocaleChar125AuthVerifyEmailRoute
+  '/{-$locale}/legal/privacy': typeof Char123LocaleChar125LegalPrivacyRoute
+  '/{-$locale}/legal/terms': typeof Char123LocaleChar125LegalTermsRoute
+  '/{-$locale}/system/maintenance': typeof Char123LocaleChar125SystemMaintenanceRoute
+  '/{-$locale}/system/permission-denied': typeof Char123LocaleChar125SystemPermissionDeniedRoute
+  '/{-$locale}/system/rate-limited': typeof Char123LocaleChar125SystemRateLimitedRoute
+  '/{-$locale}/admin': typeof Char123LocaleChar125AdminIndexRoute
+  '/{-$locale}/app': typeof Char123LocaleChar125AppIndexRoute
+  '/{-$locale}/auth': typeof Char123LocaleChar125AuthIndexRoute
+  '/{-$locale}/admin/config/auth': typeof Char123LocaleChar125AdminConfigAuthRoute
+  '/{-$locale}/admin/config/email': typeof Char123LocaleChar125AdminConfigEmailRoute
+  '/{-$locale}/admin/config/storage': typeof Char123LocaleChar125AdminConfigStorageRoute
+  '/{-$locale}/admin/support/$ticketId': typeof Char123LocaleChar125AdminSupportTicketIdRoute
+  '/{-$locale}/admin/users/$userId': typeof Char123LocaleChar125AdminUsersUserIdRoute
+  '/{-$locale}/admin/users/dashboard': typeof Char123LocaleChar125AdminUsersDashboardRoute
+  '/{-$locale}/app/assets/$assetId': typeof Char123LocaleChar125AppAssetsAssetIdRoute
+  '/{-$locale}/app/assets/upload': typeof Char123LocaleChar125AppAssetsUploadRoute
+  '/{-$locale}/app/profile/connected-accounts': typeof Char123LocaleChar125AppProfileConnectedAccountsRoute
+  '/{-$locale}/app/profile/delete-account': typeof Char123LocaleChar125AppProfileDeleteAccountRoute
+  '/{-$locale}/app/profile/notification-preferences': typeof Char123LocaleChar125AppProfileNotificationPreferencesRoute
+  '/{-$locale}/app/profile/sessions': typeof Char123LocaleChar125AppProfileSessionsRoute
+  '/{-$locale}/app/tickets/$ticketId': typeof Char123LocaleChar125AppTicketsTicketIdRoute
+  '/{-$locale}/app/tickets/closed': typeof Char123LocaleChar125AppTicketsClosedRoute
+  '/{-$locale}/admin/users': typeof Char123LocaleChar125AdminUsersIndexRoute
+  '/{-$locale}/app/assets': typeof Char123LocaleChar125AppAssetsIndexRoute
+  '/{-$locale}/app/profile': typeof Char123LocaleChar125AppProfileIndexRoute
+  '/{-$locale}/app/tickets': typeof Char123LocaleChar125AppTicketsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/$': typeof SplatRoute
+  '/{-$locale}': typeof Char123LocaleChar125RouteWithChildren
+  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/admin': typeof Char123LocaleChar125AdminRouteWithChildren
+  '/{-$locale}/app': typeof Char123LocaleChar125AppRouteWithChildren
+  '/{-$locale}/auth': typeof Char123LocaleChar125AuthRouteWithChildren
+  '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
+  '/{-$locale}/onboarding': typeof Char123LocaleChar125OnboardingRoute
+  '/{-$locale}/pricing': typeof Char123LocaleChar125PricingRoute
+  '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/setup': typeof Char123LocaleChar125SetupRoute
+  '/{-$locale}/terms': typeof Char123LocaleChar125TermsRoute
+  '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/core/$': typeof ApiCoreSplatRoute
+  '/{-$locale}/admin/assets': typeof Char123LocaleChar125AdminAssetsRoute
+  '/{-$locale}/admin/audit': typeof Char123LocaleChar125AdminAuditRoute
+  '/{-$locale}/admin/countries': typeof Char123LocaleChar125AdminCountriesRoute
+  '/{-$locale}/admin/permissions': typeof Char123LocaleChar125AdminPermissionsRoute
+  '/{-$locale}/admin/roles': typeof Char123LocaleChar125AdminRolesRoute
+  '/{-$locale}/admin/settings': typeof Char123LocaleChar125AdminSettingsRoute
+  '/{-$locale}/admin/setup': typeof Char123LocaleChar125AdminSetupRoute
+  '/{-$locale}/admin/support': typeof Char123LocaleChar125AdminSupportRouteWithChildren
+  '/{-$locale}/auth/error': typeof Char123LocaleChar125AuthErrorRoute
+  '/{-$locale}/auth/forgot-password': typeof Char123LocaleChar125AuthForgotPasswordRoute
+  '/{-$locale}/auth/reset-password': typeof Char123LocaleChar125AuthResetPasswordRoute
+  '/{-$locale}/auth/sign-in': typeof Char123LocaleChar125AuthSignInRoute
+  '/{-$locale}/auth/sign-up': typeof Char123LocaleChar125AuthSignUpRoute
+  '/{-$locale}/auth/verify-email': typeof Char123LocaleChar125AuthVerifyEmailRoute
+  '/{-$locale}/legal/privacy': typeof Char123LocaleChar125LegalPrivacyRoute
+  '/{-$locale}/legal/terms': typeof Char123LocaleChar125LegalTermsRoute
+  '/{-$locale}/system/maintenance': typeof Char123LocaleChar125SystemMaintenanceRoute
+  '/{-$locale}/system/permission-denied': typeof Char123LocaleChar125SystemPermissionDeniedRoute
+  '/{-$locale}/system/rate-limited': typeof Char123LocaleChar125SystemRateLimitedRoute
+  '/{-$locale}/admin/': typeof Char123LocaleChar125AdminIndexRoute
+  '/{-$locale}/app/': typeof Char123LocaleChar125AppIndexRoute
+  '/{-$locale}/auth/': typeof Char123LocaleChar125AuthIndexRoute
+  '/{-$locale}/admin/config/auth': typeof Char123LocaleChar125AdminConfigAuthRoute
+  '/{-$locale}/admin/config/email': typeof Char123LocaleChar125AdminConfigEmailRoute
+  '/{-$locale}/admin/config/storage': typeof Char123LocaleChar125AdminConfigStorageRoute
+  '/{-$locale}/admin/support/$ticketId': typeof Char123LocaleChar125AdminSupportTicketIdRoute
+  '/{-$locale}/admin/users/$userId': typeof Char123LocaleChar125AdminUsersUserIdRoute
+  '/{-$locale}/admin/users/dashboard': typeof Char123LocaleChar125AdminUsersDashboardRoute
+  '/{-$locale}/app/assets/$assetId': typeof Char123LocaleChar125AppAssetsAssetIdRoute
+  '/{-$locale}/app/assets/upload': typeof Char123LocaleChar125AppAssetsUploadRoute
+  '/{-$locale}/app/profile/connected-accounts': typeof Char123LocaleChar125AppProfileConnectedAccountsRoute
+  '/{-$locale}/app/profile/delete-account': typeof Char123LocaleChar125AppProfileDeleteAccountRoute
+  '/{-$locale}/app/profile/notification-preferences': typeof Char123LocaleChar125AppProfileNotificationPreferencesRoute
+  '/{-$locale}/app/profile/sessions': typeof Char123LocaleChar125AppProfileSessionsRoute
+  '/{-$locale}/app/tickets/$ticketId': typeof Char123LocaleChar125AppTicketsTicketIdRoute
+  '/{-$locale}/app/tickets/closed': typeof Char123LocaleChar125AppTicketsClosedRoute
+  '/{-$locale}/admin/users/': typeof Char123LocaleChar125AdminUsersIndexRoute
+  '/{-$locale}/app/assets/': typeof Char123LocaleChar125AppAssetsIndexRoute
+  '/{-$locale}/app/profile/': typeof Char123LocaleChar125AppProfileIndexRoute
+  '/{-$locale}/app/tickets/': typeof Char123LocaleChar125AppTicketsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$' | '/api/auth/$' | '/api/core/$'
+  fullPaths:
+    | '/{-$locale}'
+    | '/{-$locale}/about'
+    | '/{-$locale}/admin'
+    | '/{-$locale}/app'
+    | '/{-$locale}/auth'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/onboarding'
+    | '/{-$locale}/pricing'
+    | '/{-$locale}/privacy'
+    | '/{-$locale}/setup'
+    | '/{-$locale}/terms'
+    | '/{-$locale}/'
+    | '/api/auth/$'
+    | '/api/core/$'
+    | '/{-$locale}/admin/assets'
+    | '/{-$locale}/admin/audit'
+    | '/{-$locale}/admin/countries'
+    | '/{-$locale}/admin/permissions'
+    | '/{-$locale}/admin/roles'
+    | '/{-$locale}/admin/settings'
+    | '/{-$locale}/admin/setup'
+    | '/{-$locale}/admin/support'
+    | '/{-$locale}/auth/error'
+    | '/{-$locale}/auth/forgot-password'
+    | '/{-$locale}/auth/reset-password'
+    | '/{-$locale}/auth/sign-in'
+    | '/{-$locale}/auth/sign-up'
+    | '/{-$locale}/auth/verify-email'
+    | '/{-$locale}/legal/privacy'
+    | '/{-$locale}/legal/terms'
+    | '/{-$locale}/system/maintenance'
+    | '/{-$locale}/system/permission-denied'
+    | '/{-$locale}/system/rate-limited'
+    | '/{-$locale}/admin/'
+    | '/{-$locale}/app/'
+    | '/{-$locale}/auth/'
+    | '/{-$locale}/admin/config/auth'
+    | '/{-$locale}/admin/config/email'
+    | '/{-$locale}/admin/config/storage'
+    | '/{-$locale}/admin/support/$ticketId'
+    | '/{-$locale}/admin/users/$userId'
+    | '/{-$locale}/admin/users/dashboard'
+    | '/{-$locale}/app/assets/$assetId'
+    | '/{-$locale}/app/assets/upload'
+    | '/{-$locale}/app/profile/connected-accounts'
+    | '/{-$locale}/app/profile/delete-account'
+    | '/{-$locale}/app/profile/notification-preferences'
+    | '/{-$locale}/app/profile/sessions'
+    | '/{-$locale}/app/tickets/$ticketId'
+    | '/{-$locale}/app/tickets/closed'
+    | '/{-$locale}/admin/users/'
+    | '/{-$locale}/app/assets/'
+    | '/{-$locale}/app/profile/'
+    | '/{-$locale}/app/tickets/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$' | '/api/auth/$' | '/api/core/$'
-  id: '__root__' | '/' | '/$' | '/api/auth/$' | '/api/core/$'
+  to:
+    | '/{-$locale}/about'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/onboarding'
+    | '/{-$locale}/pricing'
+    | '/{-$locale}/privacy'
+    | '/{-$locale}/setup'
+    | '/{-$locale}/terms'
+    | '/{-$locale}'
+    | '/api/auth/$'
+    | '/api/core/$'
+    | '/{-$locale}/admin/assets'
+    | '/{-$locale}/admin/audit'
+    | '/{-$locale}/admin/countries'
+    | '/{-$locale}/admin/permissions'
+    | '/{-$locale}/admin/roles'
+    | '/{-$locale}/admin/settings'
+    | '/{-$locale}/admin/setup'
+    | '/{-$locale}/admin/support'
+    | '/{-$locale}/auth/error'
+    | '/{-$locale}/auth/forgot-password'
+    | '/{-$locale}/auth/reset-password'
+    | '/{-$locale}/auth/sign-in'
+    | '/{-$locale}/auth/sign-up'
+    | '/{-$locale}/auth/verify-email'
+    | '/{-$locale}/legal/privacy'
+    | '/{-$locale}/legal/terms'
+    | '/{-$locale}/system/maintenance'
+    | '/{-$locale}/system/permission-denied'
+    | '/{-$locale}/system/rate-limited'
+    | '/{-$locale}/admin'
+    | '/{-$locale}/app'
+    | '/{-$locale}/auth'
+    | '/{-$locale}/admin/config/auth'
+    | '/{-$locale}/admin/config/email'
+    | '/{-$locale}/admin/config/storage'
+    | '/{-$locale}/admin/support/$ticketId'
+    | '/{-$locale}/admin/users/$userId'
+    | '/{-$locale}/admin/users/dashboard'
+    | '/{-$locale}/app/assets/$assetId'
+    | '/{-$locale}/app/assets/upload'
+    | '/{-$locale}/app/profile/connected-accounts'
+    | '/{-$locale}/app/profile/delete-account'
+    | '/{-$locale}/app/profile/notification-preferences'
+    | '/{-$locale}/app/profile/sessions'
+    | '/{-$locale}/app/tickets/$ticketId'
+    | '/{-$locale}/app/tickets/closed'
+    | '/{-$locale}/admin/users'
+    | '/{-$locale}/app/assets'
+    | '/{-$locale}/app/profile'
+    | '/{-$locale}/app/tickets'
+  id:
+    | '__root__'
+    | '/{-$locale}'
+    | '/{-$locale}/about'
+    | '/{-$locale}/admin'
+    | '/{-$locale}/app'
+    | '/{-$locale}/auth'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/onboarding'
+    | '/{-$locale}/pricing'
+    | '/{-$locale}/privacy'
+    | '/{-$locale}/setup'
+    | '/{-$locale}/terms'
+    | '/{-$locale}/'
+    | '/api/auth/$'
+    | '/api/core/$'
+    | '/{-$locale}/admin/assets'
+    | '/{-$locale}/admin/audit'
+    | '/{-$locale}/admin/countries'
+    | '/{-$locale}/admin/permissions'
+    | '/{-$locale}/admin/roles'
+    | '/{-$locale}/admin/settings'
+    | '/{-$locale}/admin/setup'
+    | '/{-$locale}/admin/support'
+    | '/{-$locale}/auth/error'
+    | '/{-$locale}/auth/forgot-password'
+    | '/{-$locale}/auth/reset-password'
+    | '/{-$locale}/auth/sign-in'
+    | '/{-$locale}/auth/sign-up'
+    | '/{-$locale}/auth/verify-email'
+    | '/{-$locale}/legal/privacy'
+    | '/{-$locale}/legal/terms'
+    | '/{-$locale}/system/maintenance'
+    | '/{-$locale}/system/permission-denied'
+    | '/{-$locale}/system/rate-limited'
+    | '/{-$locale}/admin/'
+    | '/{-$locale}/app/'
+    | '/{-$locale}/auth/'
+    | '/{-$locale}/admin/config/auth'
+    | '/{-$locale}/admin/config/email'
+    | '/{-$locale}/admin/config/storage'
+    | '/{-$locale}/admin/support/$ticketId'
+    | '/{-$locale}/admin/users/$userId'
+    | '/{-$locale}/admin/users/dashboard'
+    | '/{-$locale}/app/assets/$assetId'
+    | '/{-$locale}/app/assets/upload'
+    | '/{-$locale}/app/profile/connected-accounts'
+    | '/{-$locale}/app/profile/delete-account'
+    | '/{-$locale}/app/profile/notification-preferences'
+    | '/{-$locale}/app/profile/sessions'
+    | '/{-$locale}/app/tickets/$ticketId'
+    | '/{-$locale}/app/tickets/closed'
+    | '/{-$locale}/admin/users/'
+    | '/{-$locale}/app/assets/'
+    | '/{-$locale}/app/profile/'
+    | '/{-$locale}/app/tickets/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  SplatRoute: typeof SplatRoute
+  Char123LocaleChar125Route: typeof Char123LocaleChar125RouteWithChildren
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiCoreSplatRoute: typeof ApiCoreSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/$': {
-      id: '/$'
-      path: '/$'
-      fullPath: '/$'
-      preLoaderRoute: typeof SplatRouteImport
+    '/{-$locale}': {
+      id: '/{-$locale}'
+      path: '/{-$locale}'
+      fullPath: '/{-$locale}'
+      preLoaderRoute: typeof Char123LocaleChar125RouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/{-$locale}/': {
+      id: '/{-$locale}/'
       path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      fullPath: '/{-$locale}/'
+      preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/terms': {
+      id: '/{-$locale}/terms'
+      path: '/terms'
+      fullPath: '/{-$locale}/terms'
+      preLoaderRoute: typeof Char123LocaleChar125TermsRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/setup': {
+      id: '/{-$locale}/setup'
+      path: '/setup'
+      fullPath: '/{-$locale}/setup'
+      preLoaderRoute: typeof Char123LocaleChar125SetupRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/privacy': {
+      id: '/{-$locale}/privacy'
+      path: '/privacy'
+      fullPath: '/{-$locale}/privacy'
+      preLoaderRoute: typeof Char123LocaleChar125PrivacyRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/pricing': {
+      id: '/{-$locale}/pricing'
+      path: '/pricing'
+      fullPath: '/{-$locale}/pricing'
+      preLoaderRoute: typeof Char123LocaleChar125PricingRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/onboarding': {
+      id: '/{-$locale}/onboarding'
+      path: '/onboarding'
+      fullPath: '/{-$locale}/onboarding'
+      preLoaderRoute: typeof Char123LocaleChar125OnboardingRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/contact': {
+      id: '/{-$locale}/contact'
+      path: '/contact'
+      fullPath: '/{-$locale}/contact'
+      preLoaderRoute: typeof Char123LocaleChar125ContactRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/auth': {
+      id: '/{-$locale}/auth'
+      path: '/auth'
+      fullPath: '/{-$locale}/auth'
+      preLoaderRoute: typeof Char123LocaleChar125AuthRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/app': {
+      id: '/{-$locale}/app'
+      path: '/app'
+      fullPath: '/{-$locale}/app'
+      preLoaderRoute: typeof Char123LocaleChar125AppRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/admin': {
+      id: '/{-$locale}/admin'
+      path: '/admin'
+      fullPath: '/{-$locale}/admin'
+      preLoaderRoute: typeof Char123LocaleChar125AdminRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/about': {
+      id: '/{-$locale}/about'
+      path: '/about'
+      fullPath: '/{-$locale}/about'
+      preLoaderRoute: typeof Char123LocaleChar125AboutRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/auth/': {
+      id: '/{-$locale}/auth/'
+      path: '/'
+      fullPath: '/{-$locale}/auth/'
+      preLoaderRoute: typeof Char123LocaleChar125AuthIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125AuthRoute
+    }
+    '/{-$locale}/app/': {
+      id: '/{-$locale}/app/'
+      path: '/'
+      fullPath: '/{-$locale}/app/'
+      preLoaderRoute: typeof Char123LocaleChar125AppIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/admin/': {
+      id: '/{-$locale}/admin/'
+      path: '/'
+      fullPath: '/{-$locale}/admin/'
+      preLoaderRoute: typeof Char123LocaleChar125AdminIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/system/rate-limited': {
+      id: '/{-$locale}/system/rate-limited'
+      path: '/system/rate-limited'
+      fullPath: '/{-$locale}/system/rate-limited'
+      preLoaderRoute: typeof Char123LocaleChar125SystemRateLimitedRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/system/permission-denied': {
+      id: '/{-$locale}/system/permission-denied'
+      path: '/system/permission-denied'
+      fullPath: '/{-$locale}/system/permission-denied'
+      preLoaderRoute: typeof Char123LocaleChar125SystemPermissionDeniedRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/system/maintenance': {
+      id: '/{-$locale}/system/maintenance'
+      path: '/system/maintenance'
+      fullPath: '/{-$locale}/system/maintenance'
+      preLoaderRoute: typeof Char123LocaleChar125SystemMaintenanceRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/legal/terms': {
+      id: '/{-$locale}/legal/terms'
+      path: '/legal/terms'
+      fullPath: '/{-$locale}/legal/terms'
+      preLoaderRoute: typeof Char123LocaleChar125LegalTermsRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/legal/privacy': {
+      id: '/{-$locale}/legal/privacy'
+      path: '/legal/privacy'
+      fullPath: '/{-$locale}/legal/privacy'
+      preLoaderRoute: typeof Char123LocaleChar125LegalPrivacyRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/auth/verify-email': {
+      id: '/{-$locale}/auth/verify-email'
+      path: '/verify-email'
+      fullPath: '/{-$locale}/auth/verify-email'
+      preLoaderRoute: typeof Char123LocaleChar125AuthVerifyEmailRouteImport
+      parentRoute: typeof Char123LocaleChar125AuthRoute
+    }
+    '/{-$locale}/auth/sign-up': {
+      id: '/{-$locale}/auth/sign-up'
+      path: '/sign-up'
+      fullPath: '/{-$locale}/auth/sign-up'
+      preLoaderRoute: typeof Char123LocaleChar125AuthSignUpRouteImport
+      parentRoute: typeof Char123LocaleChar125AuthRoute
+    }
+    '/{-$locale}/auth/sign-in': {
+      id: '/{-$locale}/auth/sign-in'
+      path: '/sign-in'
+      fullPath: '/{-$locale}/auth/sign-in'
+      preLoaderRoute: typeof Char123LocaleChar125AuthSignInRouteImport
+      parentRoute: typeof Char123LocaleChar125AuthRoute
+    }
+    '/{-$locale}/auth/reset-password': {
+      id: '/{-$locale}/auth/reset-password'
+      path: '/reset-password'
+      fullPath: '/{-$locale}/auth/reset-password'
+      preLoaderRoute: typeof Char123LocaleChar125AuthResetPasswordRouteImport
+      parentRoute: typeof Char123LocaleChar125AuthRoute
+    }
+    '/{-$locale}/auth/forgot-password': {
+      id: '/{-$locale}/auth/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/{-$locale}/auth/forgot-password'
+      preLoaderRoute: typeof Char123LocaleChar125AuthForgotPasswordRouteImport
+      parentRoute: typeof Char123LocaleChar125AuthRoute
+    }
+    '/{-$locale}/auth/error': {
+      id: '/{-$locale}/auth/error'
+      path: '/error'
+      fullPath: '/{-$locale}/auth/error'
+      preLoaderRoute: typeof Char123LocaleChar125AuthErrorRouteImport
+      parentRoute: typeof Char123LocaleChar125AuthRoute
+    }
+    '/{-$locale}/admin/support': {
+      id: '/{-$locale}/admin/support'
+      path: '/support'
+      fullPath: '/{-$locale}/admin/support'
+      preLoaderRoute: typeof Char123LocaleChar125AdminSupportRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/setup': {
+      id: '/{-$locale}/admin/setup'
+      path: '/setup'
+      fullPath: '/{-$locale}/admin/setup'
+      preLoaderRoute: typeof Char123LocaleChar125AdminSetupRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/settings': {
+      id: '/{-$locale}/admin/settings'
+      path: '/settings'
+      fullPath: '/{-$locale}/admin/settings'
+      preLoaderRoute: typeof Char123LocaleChar125AdminSettingsRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/roles': {
+      id: '/{-$locale}/admin/roles'
+      path: '/roles'
+      fullPath: '/{-$locale}/admin/roles'
+      preLoaderRoute: typeof Char123LocaleChar125AdminRolesRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/permissions': {
+      id: '/{-$locale}/admin/permissions'
+      path: '/permissions'
+      fullPath: '/{-$locale}/admin/permissions'
+      preLoaderRoute: typeof Char123LocaleChar125AdminPermissionsRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/countries': {
+      id: '/{-$locale}/admin/countries'
+      path: '/countries'
+      fullPath: '/{-$locale}/admin/countries'
+      preLoaderRoute: typeof Char123LocaleChar125AdminCountriesRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/audit': {
+      id: '/{-$locale}/admin/audit'
+      path: '/audit'
+      fullPath: '/{-$locale}/admin/audit'
+      preLoaderRoute: typeof Char123LocaleChar125AdminAuditRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/assets': {
+      id: '/{-$locale}/admin/assets'
+      path: '/assets'
+      fullPath: '/{-$locale}/admin/assets'
+      preLoaderRoute: typeof Char123LocaleChar125AdminAssetsRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
     }
     '/api/core/$': {
       id: '/api/core/$'
@@ -99,12 +977,324 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/{-$locale}/app/tickets/': {
+      id: '/{-$locale}/app/tickets/'
+      path: '/tickets'
+      fullPath: '/{-$locale}/app/tickets/'
+      preLoaderRoute: typeof Char123LocaleChar125AppTicketsIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/app/profile/': {
+      id: '/{-$locale}/app/profile/'
+      path: '/profile'
+      fullPath: '/{-$locale}/app/profile/'
+      preLoaderRoute: typeof Char123LocaleChar125AppProfileIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/app/assets/': {
+      id: '/{-$locale}/app/assets/'
+      path: '/assets'
+      fullPath: '/{-$locale}/app/assets/'
+      preLoaderRoute: typeof Char123LocaleChar125AppAssetsIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/admin/users/': {
+      id: '/{-$locale}/admin/users/'
+      path: '/users'
+      fullPath: '/{-$locale}/admin/users/'
+      preLoaderRoute: typeof Char123LocaleChar125AdminUsersIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/app/tickets/closed': {
+      id: '/{-$locale}/app/tickets/closed'
+      path: '/tickets/closed'
+      fullPath: '/{-$locale}/app/tickets/closed'
+      preLoaderRoute: typeof Char123LocaleChar125AppTicketsClosedRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/app/tickets/$ticketId': {
+      id: '/{-$locale}/app/tickets/$ticketId'
+      path: '/tickets/$ticketId'
+      fullPath: '/{-$locale}/app/tickets/$ticketId'
+      preLoaderRoute: typeof Char123LocaleChar125AppTicketsTicketIdRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/app/profile/sessions': {
+      id: '/{-$locale}/app/profile/sessions'
+      path: '/profile/sessions'
+      fullPath: '/{-$locale}/app/profile/sessions'
+      preLoaderRoute: typeof Char123LocaleChar125AppProfileSessionsRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/app/profile/notification-preferences': {
+      id: '/{-$locale}/app/profile/notification-preferences'
+      path: '/profile/notification-preferences'
+      fullPath: '/{-$locale}/app/profile/notification-preferences'
+      preLoaderRoute: typeof Char123LocaleChar125AppProfileNotificationPreferencesRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/app/profile/delete-account': {
+      id: '/{-$locale}/app/profile/delete-account'
+      path: '/profile/delete-account'
+      fullPath: '/{-$locale}/app/profile/delete-account'
+      preLoaderRoute: typeof Char123LocaleChar125AppProfileDeleteAccountRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/app/profile/connected-accounts': {
+      id: '/{-$locale}/app/profile/connected-accounts'
+      path: '/profile/connected-accounts'
+      fullPath: '/{-$locale}/app/profile/connected-accounts'
+      preLoaderRoute: typeof Char123LocaleChar125AppProfileConnectedAccountsRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/app/assets/upload': {
+      id: '/{-$locale}/app/assets/upload'
+      path: '/assets/upload'
+      fullPath: '/{-$locale}/app/assets/upload'
+      preLoaderRoute: typeof Char123LocaleChar125AppAssetsUploadRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/app/assets/$assetId': {
+      id: '/{-$locale}/app/assets/$assetId'
+      path: '/assets/$assetId'
+      fullPath: '/{-$locale}/app/assets/$assetId'
+      preLoaderRoute: typeof Char123LocaleChar125AppAssetsAssetIdRouteImport
+      parentRoute: typeof Char123LocaleChar125AppRoute
+    }
+    '/{-$locale}/admin/users/dashboard': {
+      id: '/{-$locale}/admin/users/dashboard'
+      path: '/users/dashboard'
+      fullPath: '/{-$locale}/admin/users/dashboard'
+      preLoaderRoute: typeof Char123LocaleChar125AdminUsersDashboardRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/users/$userId': {
+      id: '/{-$locale}/admin/users/$userId'
+      path: '/users/$userId'
+      fullPath: '/{-$locale}/admin/users/$userId'
+      preLoaderRoute: typeof Char123LocaleChar125AdminUsersUserIdRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/support/$ticketId': {
+      id: '/{-$locale}/admin/support/$ticketId'
+      path: '/$ticketId'
+      fullPath: '/{-$locale}/admin/support/$ticketId'
+      preLoaderRoute: typeof Char123LocaleChar125AdminSupportTicketIdRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminSupportRoute
+    }
+    '/{-$locale}/admin/config/storage': {
+      id: '/{-$locale}/admin/config/storage'
+      path: '/config/storage'
+      fullPath: '/{-$locale}/admin/config/storage'
+      preLoaderRoute: typeof Char123LocaleChar125AdminConfigStorageRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/config/email': {
+      id: '/{-$locale}/admin/config/email'
+      path: '/config/email'
+      fullPath: '/{-$locale}/admin/config/email'
+      preLoaderRoute: typeof Char123LocaleChar125AdminConfigEmailRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
+    '/{-$locale}/admin/config/auth': {
+      id: '/{-$locale}/admin/config/auth'
+      path: '/config/auth'
+      fullPath: '/{-$locale}/admin/config/auth'
+      preLoaderRoute: typeof Char123LocaleChar125AdminConfigAuthRouteImport
+      parentRoute: typeof Char123LocaleChar125AdminRoute
+    }
   }
 }
 
+interface Char123LocaleChar125AdminSupportRouteChildren {
+  Char123LocaleChar125AdminSupportTicketIdRoute: typeof Char123LocaleChar125AdminSupportTicketIdRoute
+}
+
+const Char123LocaleChar125AdminSupportRouteChildren: Char123LocaleChar125AdminSupportRouteChildren =
+  {
+    Char123LocaleChar125AdminSupportTicketIdRoute:
+      Char123LocaleChar125AdminSupportTicketIdRoute,
+  }
+
+const Char123LocaleChar125AdminSupportRouteWithChildren =
+  Char123LocaleChar125AdminSupportRoute._addFileChildren(
+    Char123LocaleChar125AdminSupportRouteChildren,
+  )
+
+interface Char123LocaleChar125AdminRouteChildren {
+  Char123LocaleChar125AdminAssetsRoute: typeof Char123LocaleChar125AdminAssetsRoute
+  Char123LocaleChar125AdminAuditRoute: typeof Char123LocaleChar125AdminAuditRoute
+  Char123LocaleChar125AdminCountriesRoute: typeof Char123LocaleChar125AdminCountriesRoute
+  Char123LocaleChar125AdminPermissionsRoute: typeof Char123LocaleChar125AdminPermissionsRoute
+  Char123LocaleChar125AdminRolesRoute: typeof Char123LocaleChar125AdminRolesRoute
+  Char123LocaleChar125AdminSettingsRoute: typeof Char123LocaleChar125AdminSettingsRoute
+  Char123LocaleChar125AdminSetupRoute: typeof Char123LocaleChar125AdminSetupRoute
+  Char123LocaleChar125AdminSupportRoute: typeof Char123LocaleChar125AdminSupportRouteWithChildren
+  Char123LocaleChar125AdminIndexRoute: typeof Char123LocaleChar125AdminIndexRoute
+  Char123LocaleChar125AdminConfigAuthRoute: typeof Char123LocaleChar125AdminConfigAuthRoute
+  Char123LocaleChar125AdminConfigEmailRoute: typeof Char123LocaleChar125AdminConfigEmailRoute
+  Char123LocaleChar125AdminConfigStorageRoute: typeof Char123LocaleChar125AdminConfigStorageRoute
+  Char123LocaleChar125AdminUsersUserIdRoute: typeof Char123LocaleChar125AdminUsersUserIdRoute
+  Char123LocaleChar125AdminUsersDashboardRoute: typeof Char123LocaleChar125AdminUsersDashboardRoute
+  Char123LocaleChar125AdminUsersIndexRoute: typeof Char123LocaleChar125AdminUsersIndexRoute
+}
+
+const Char123LocaleChar125AdminRouteChildren: Char123LocaleChar125AdminRouteChildren =
+  {
+    Char123LocaleChar125AdminAssetsRoute: Char123LocaleChar125AdminAssetsRoute,
+    Char123LocaleChar125AdminAuditRoute: Char123LocaleChar125AdminAuditRoute,
+    Char123LocaleChar125AdminCountriesRoute:
+      Char123LocaleChar125AdminCountriesRoute,
+    Char123LocaleChar125AdminPermissionsRoute:
+      Char123LocaleChar125AdminPermissionsRoute,
+    Char123LocaleChar125AdminRolesRoute: Char123LocaleChar125AdminRolesRoute,
+    Char123LocaleChar125AdminSettingsRoute:
+      Char123LocaleChar125AdminSettingsRoute,
+    Char123LocaleChar125AdminSetupRoute: Char123LocaleChar125AdminSetupRoute,
+    Char123LocaleChar125AdminSupportRoute:
+      Char123LocaleChar125AdminSupportRouteWithChildren,
+    Char123LocaleChar125AdminIndexRoute: Char123LocaleChar125AdminIndexRoute,
+    Char123LocaleChar125AdminConfigAuthRoute:
+      Char123LocaleChar125AdminConfigAuthRoute,
+    Char123LocaleChar125AdminConfigEmailRoute:
+      Char123LocaleChar125AdminConfigEmailRoute,
+    Char123LocaleChar125AdminConfigStorageRoute:
+      Char123LocaleChar125AdminConfigStorageRoute,
+    Char123LocaleChar125AdminUsersUserIdRoute:
+      Char123LocaleChar125AdminUsersUserIdRoute,
+    Char123LocaleChar125AdminUsersDashboardRoute:
+      Char123LocaleChar125AdminUsersDashboardRoute,
+    Char123LocaleChar125AdminUsersIndexRoute:
+      Char123LocaleChar125AdminUsersIndexRoute,
+  }
+
+const Char123LocaleChar125AdminRouteWithChildren =
+  Char123LocaleChar125AdminRoute._addFileChildren(
+    Char123LocaleChar125AdminRouteChildren,
+  )
+
+interface Char123LocaleChar125AppRouteChildren {
+  Char123LocaleChar125AppIndexRoute: typeof Char123LocaleChar125AppIndexRoute
+  Char123LocaleChar125AppAssetsAssetIdRoute: typeof Char123LocaleChar125AppAssetsAssetIdRoute
+  Char123LocaleChar125AppAssetsUploadRoute: typeof Char123LocaleChar125AppAssetsUploadRoute
+  Char123LocaleChar125AppProfileConnectedAccountsRoute: typeof Char123LocaleChar125AppProfileConnectedAccountsRoute
+  Char123LocaleChar125AppProfileDeleteAccountRoute: typeof Char123LocaleChar125AppProfileDeleteAccountRoute
+  Char123LocaleChar125AppProfileNotificationPreferencesRoute: typeof Char123LocaleChar125AppProfileNotificationPreferencesRoute
+  Char123LocaleChar125AppProfileSessionsRoute: typeof Char123LocaleChar125AppProfileSessionsRoute
+  Char123LocaleChar125AppTicketsTicketIdRoute: typeof Char123LocaleChar125AppTicketsTicketIdRoute
+  Char123LocaleChar125AppTicketsClosedRoute: typeof Char123LocaleChar125AppTicketsClosedRoute
+  Char123LocaleChar125AppAssetsIndexRoute: typeof Char123LocaleChar125AppAssetsIndexRoute
+  Char123LocaleChar125AppProfileIndexRoute: typeof Char123LocaleChar125AppProfileIndexRoute
+  Char123LocaleChar125AppTicketsIndexRoute: typeof Char123LocaleChar125AppTicketsIndexRoute
+}
+
+const Char123LocaleChar125AppRouteChildren: Char123LocaleChar125AppRouteChildren =
+  {
+    Char123LocaleChar125AppIndexRoute: Char123LocaleChar125AppIndexRoute,
+    Char123LocaleChar125AppAssetsAssetIdRoute:
+      Char123LocaleChar125AppAssetsAssetIdRoute,
+    Char123LocaleChar125AppAssetsUploadRoute:
+      Char123LocaleChar125AppAssetsUploadRoute,
+    Char123LocaleChar125AppProfileConnectedAccountsRoute:
+      Char123LocaleChar125AppProfileConnectedAccountsRoute,
+    Char123LocaleChar125AppProfileDeleteAccountRoute:
+      Char123LocaleChar125AppProfileDeleteAccountRoute,
+    Char123LocaleChar125AppProfileNotificationPreferencesRoute:
+      Char123LocaleChar125AppProfileNotificationPreferencesRoute,
+    Char123LocaleChar125AppProfileSessionsRoute:
+      Char123LocaleChar125AppProfileSessionsRoute,
+    Char123LocaleChar125AppTicketsTicketIdRoute:
+      Char123LocaleChar125AppTicketsTicketIdRoute,
+    Char123LocaleChar125AppTicketsClosedRoute:
+      Char123LocaleChar125AppTicketsClosedRoute,
+    Char123LocaleChar125AppAssetsIndexRoute:
+      Char123LocaleChar125AppAssetsIndexRoute,
+    Char123LocaleChar125AppProfileIndexRoute:
+      Char123LocaleChar125AppProfileIndexRoute,
+    Char123LocaleChar125AppTicketsIndexRoute:
+      Char123LocaleChar125AppTicketsIndexRoute,
+  }
+
+const Char123LocaleChar125AppRouteWithChildren =
+  Char123LocaleChar125AppRoute._addFileChildren(
+    Char123LocaleChar125AppRouteChildren,
+  )
+
+interface Char123LocaleChar125AuthRouteChildren {
+  Char123LocaleChar125AuthErrorRoute: typeof Char123LocaleChar125AuthErrorRoute
+  Char123LocaleChar125AuthForgotPasswordRoute: typeof Char123LocaleChar125AuthForgotPasswordRoute
+  Char123LocaleChar125AuthResetPasswordRoute: typeof Char123LocaleChar125AuthResetPasswordRoute
+  Char123LocaleChar125AuthSignInRoute: typeof Char123LocaleChar125AuthSignInRoute
+  Char123LocaleChar125AuthSignUpRoute: typeof Char123LocaleChar125AuthSignUpRoute
+  Char123LocaleChar125AuthVerifyEmailRoute: typeof Char123LocaleChar125AuthVerifyEmailRoute
+  Char123LocaleChar125AuthIndexRoute: typeof Char123LocaleChar125AuthIndexRoute
+}
+
+const Char123LocaleChar125AuthRouteChildren: Char123LocaleChar125AuthRouteChildren =
+  {
+    Char123LocaleChar125AuthErrorRoute: Char123LocaleChar125AuthErrorRoute,
+    Char123LocaleChar125AuthForgotPasswordRoute:
+      Char123LocaleChar125AuthForgotPasswordRoute,
+    Char123LocaleChar125AuthResetPasswordRoute:
+      Char123LocaleChar125AuthResetPasswordRoute,
+    Char123LocaleChar125AuthSignInRoute: Char123LocaleChar125AuthSignInRoute,
+    Char123LocaleChar125AuthSignUpRoute: Char123LocaleChar125AuthSignUpRoute,
+    Char123LocaleChar125AuthVerifyEmailRoute:
+      Char123LocaleChar125AuthVerifyEmailRoute,
+    Char123LocaleChar125AuthIndexRoute: Char123LocaleChar125AuthIndexRoute,
+  }
+
+const Char123LocaleChar125AuthRouteWithChildren =
+  Char123LocaleChar125AuthRoute._addFileChildren(
+    Char123LocaleChar125AuthRouteChildren,
+  )
+
+interface Char123LocaleChar125RouteChildren {
+  Char123LocaleChar125AboutRoute: typeof Char123LocaleChar125AboutRoute
+  Char123LocaleChar125AdminRoute: typeof Char123LocaleChar125AdminRouteWithChildren
+  Char123LocaleChar125AppRoute: typeof Char123LocaleChar125AppRouteWithChildren
+  Char123LocaleChar125AuthRoute: typeof Char123LocaleChar125AuthRouteWithChildren
+  Char123LocaleChar125ContactRoute: typeof Char123LocaleChar125ContactRoute
+  Char123LocaleChar125OnboardingRoute: typeof Char123LocaleChar125OnboardingRoute
+  Char123LocaleChar125PricingRoute: typeof Char123LocaleChar125PricingRoute
+  Char123LocaleChar125PrivacyRoute: typeof Char123LocaleChar125PrivacyRoute
+  Char123LocaleChar125SetupRoute: typeof Char123LocaleChar125SetupRoute
+  Char123LocaleChar125TermsRoute: typeof Char123LocaleChar125TermsRoute
+  Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
+  Char123LocaleChar125LegalPrivacyRoute: typeof Char123LocaleChar125LegalPrivacyRoute
+  Char123LocaleChar125LegalTermsRoute: typeof Char123LocaleChar125LegalTermsRoute
+  Char123LocaleChar125SystemMaintenanceRoute: typeof Char123LocaleChar125SystemMaintenanceRoute
+  Char123LocaleChar125SystemPermissionDeniedRoute: typeof Char123LocaleChar125SystemPermissionDeniedRoute
+  Char123LocaleChar125SystemRateLimitedRoute: typeof Char123LocaleChar125SystemRateLimitedRoute
+}
+
+const Char123LocaleChar125RouteChildren: Char123LocaleChar125RouteChildren = {
+  Char123LocaleChar125AboutRoute: Char123LocaleChar125AboutRoute,
+  Char123LocaleChar125AdminRoute: Char123LocaleChar125AdminRouteWithChildren,
+  Char123LocaleChar125AppRoute: Char123LocaleChar125AppRouteWithChildren,
+  Char123LocaleChar125AuthRoute: Char123LocaleChar125AuthRouteWithChildren,
+  Char123LocaleChar125ContactRoute: Char123LocaleChar125ContactRoute,
+  Char123LocaleChar125OnboardingRoute: Char123LocaleChar125OnboardingRoute,
+  Char123LocaleChar125PricingRoute: Char123LocaleChar125PricingRoute,
+  Char123LocaleChar125PrivacyRoute: Char123LocaleChar125PrivacyRoute,
+  Char123LocaleChar125SetupRoute: Char123LocaleChar125SetupRoute,
+  Char123LocaleChar125TermsRoute: Char123LocaleChar125TermsRoute,
+  Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
+  Char123LocaleChar125LegalPrivacyRoute: Char123LocaleChar125LegalPrivacyRoute,
+  Char123LocaleChar125LegalTermsRoute: Char123LocaleChar125LegalTermsRoute,
+  Char123LocaleChar125SystemMaintenanceRoute:
+    Char123LocaleChar125SystemMaintenanceRoute,
+  Char123LocaleChar125SystemPermissionDeniedRoute:
+    Char123LocaleChar125SystemPermissionDeniedRoute,
+  Char123LocaleChar125SystemRateLimitedRoute:
+    Char123LocaleChar125SystemRateLimitedRoute,
+}
+
+const Char123LocaleChar125RouteWithChildren =
+  Char123LocaleChar125Route._addFileChildren(Char123LocaleChar125RouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  SplatRoute: SplatRoute,
+  Char123LocaleChar125Route: Char123LocaleChar125RouteWithChildren,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiCoreSplatRoute: ApiCoreSplatRoute,
 }

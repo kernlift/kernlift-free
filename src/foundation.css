@@ -1,0 +1,297 @@
+@import "tailwindcss";
+:root {
+	--frame-gray: #e7e5e0;
+	--sidebar-gray: #e3e1dc;
+	--sidebar-active: #dcdad5;
+	--canvas-white: #ffffff;
+	--panel-white: #ffffff;
+	--subtle-surface: #f7f7f5;
+	--soft-divider: #ececea;
+	--hairline-border: #d8d8d4;
+	--ink-black: #111111;
+	--graphite-text: #4f4f4b;
+	--muted-label: #8b8b86;
+	--growth-green: #087a2b;
+	--warning-border: rgb(180 122 22 / 30%);
+	--surface-bright: #ffffff;
+	--chart-pale: #e2e2df;
+	--chart-gray: #9a9a96;
+	--surface-dim: #dcdad5;
+	--edge-shadow: rgb(0 0 0 / 2%);
+	--danger-surface: #fff7ed;
+	--danger-border: #fed7aa;
+	--danger-text: #7c2d12;
+	--danger-muted: #9a3412;
+	--danger-action: #b91c1c;
+	--page-gradient-start: #f8f8f6;
+	--page-accent-glow: rgb(8 122 43 / 6%);
+	--nav-surface: rgb(255 255 255 / 84%);
+	--nav-shadow: rgb(17 17 17 / 7%);
+	--nav-link: rgb(79 79 75 / 86%);
+	--icon-hover-surface: rgb(8 122 43 / 8%);
+	--popover-surface: rgb(255 255 255 / 94%);
+	--popover-shadow: rgb(17 17 17 / 14%);
+	--transparent-surface: rgb(255 255 255 / 0%);
+	--hero-pill-border: rgb(8 122 43 / 16%);
+	--hero-pill-surface: rgb(232 244 236 / 72%);
+	--brand-mark-border: rgb(216 216 212 / 92%);
+	--brand-mark-surface: rgb(255 255 255 / 74%);
+	--brand-mark-highlight: rgb(255 255 255 / 82%);
+	--module-panel-gradient: linear-gradient(
+		180deg,
+		rgb(247 247 245 / 88%),
+		rgb(255 255 255 / 96%)
+	);
+	--module-accent-glow: rgb(8 122 43 / 9%);
+	--soft-accent-gradient: linear-gradient(
+		135deg,
+		rgb(232 244 236 / 64%),
+		rgb(255 255 255 / 76%)
+	);
+	--card-shadow: rgb(17 17 17 / 8%);
+	--module-shadow: rgb(17 17 17 / 4%);
+	--dark-surface: #111111;
+	--on-dark-surface: #ffffff;
+	--dark-surface-glow: rgb(8 122 43 / 30%);
+	--dark-muted-text: rgb(255 255 255 / 62%);
+	--dark-border: rgb(255 255 255 / 44%);
+	--dark-grid-line: rgb(255 255 255 / 10%);
+	--primary-shadow: rgb(17 17 17 / 14%);
+	--secondary-button-surface: rgb(255 255 255 / 78%);
+	color-scheme: light;
+	color: var(--foreground);
+
+	/* beUI: one set of tokens for the whole product — console, workspace,
+     auth, system and marketing. Declared last so they win over the values
+     above, which belong to marketing rules still being retired. */
+	--growth-wash: #e8f4ec;
+	--color-success: #087a2b;
+	--warning-amber: #8f5c0b;
+	--failure-red: #b9413b;
+	--warning-wash: #fff7e8;
+	--failure-wash: #fbe9e8;
+	--failure-border: rgb(185 65 59 / 35%);
+	--background: #f6f5f1;
+	--foreground: #20231f;
+	--card: #ffffff;
+	--card-foreground: #161817;
+	--popover: #fffefa;
+	--popover-foreground: #161817;
+	--primary: #3859d6;
+	--primary-foreground: #ffffff;
+	--secondary: #eeede8;
+	--secondary-foreground: #161817;
+	--muted: #eeede8;
+	--muted-foreground: #62666e;
+	--accent: #e8edf9;
+	--accent-foreground: #161817;
+	--brand-accent: #3859d6;
+	--brand-accent-light: #e8edf9;
+	--destructive: oklch(0.577 0.245 27.325);
+	--border: #ddded8;
+	--input: #777e76;
+	--ring: #3859d6;
+	--chart-1: oklch(0.87 0 0);
+	--chart-2: oklch(0.556 0 0);
+	--chart-3: oklch(0.439 0 0);
+	--chart-4: oklch(0.371 0 0);
+	--chart-5: oklch(0.269 0 0);
+	--radius: 0.625rem;
+	--sidebar: #f5f5f7;
+	--sidebar-foreground: #38383c;
+	--sidebar-primary: #252527;
+	--sidebar-primary-foreground: #ffffff;
+	--sidebar-accent: #eaeaee;
+	--sidebar-accent-foreground: #38383c;
+	--sidebar-border: #dfdfe0;
+	--sidebar-ring: #38383c;
+	font-family:
+		"Geist Variable", Geist, "Noto Sans SC", ui-sans-serif, system-ui,
+		sans-serif;
+}
+:root[data-theme="dark"] {
+	--frame-gray: var(--background);
+	--sidebar-gray: var(--sidebar);
+	--sidebar-active: var(--sidebar-accent);
+	--canvas-white: var(--background);
+	--panel-white: var(--card);
+	--subtle-surface: var(--muted);
+	--soft-divider: var(--border);
+	--hairline-border: var(--border);
+	--ink-black: var(--foreground);
+	--graphite-text: #b9bdc6;
+	--muted-label: var(--muted-foreground);
+	--growth-green: #5bd57a;
+	--warning-border: rgb(230 171 68 / 28%);
+	--surface-bright: #23262d;
+	--chart-pale: #2d3038;
+	--chart-gray: #737986;
+	--surface-dim: #1c1f25;
+	--edge-shadow: rgb(0 0 0 / 24%);
+	--danger-surface: #351d16;
+	--danger-border: #7d3a25;
+	--danger-text: #ffb38d;
+	--danger-muted: #d88a68;
+	--danger-action: #dc4c45;
+	--page-gradient-start: #141414;
+	--page-accent-glow: rgb(255 255 255 / 4%);
+	--nav-surface: rgb(16 16 16 / 84%);
+	--nav-shadow: rgb(0 0 0 / 22%);
+	--nav-link: #a0a5af;
+	--icon-hover-surface: rgb(255 255 255 / 8%);
+	--popover-surface: rgb(24 24 24 / 94%);
+	--popover-shadow: rgb(0 0 0 / 34%);
+	--transparent-surface: rgb(16 16 16 / 0%);
+	--hero-pill-border: rgb(255 255 255 / 14%);
+	--hero-pill-surface: rgb(31 31 31 / 80%);
+	--brand-mark-border: rgb(52 52 52 / 92%);
+	--brand-mark-surface: rgb(24 24 24 / 74%);
+	--brand-mark-highlight: rgb(255 255 255 / 10%);
+	--module-panel-gradient: linear-gradient(
+		180deg,
+		rgb(24 24 24 / 92%),
+		rgb(16 16 16 / 96%)
+	);
+	--module-accent-glow: rgb(255 255 255 / 6%);
+	--soft-accent-gradient: linear-gradient(
+		135deg,
+		rgb(31 31 31 / 64%),
+		rgb(16 16 16 / 76%)
+	);
+	--card-shadow: rgb(0 0 0 / 28%);
+	--module-shadow: rgb(0 0 0 / 20%);
+	--dark-surface: #121418;
+	--on-dark-surface: #e6e7eb;
+	--dark-surface-glow: rgb(255 255 255 / 8%);
+	--dark-muted-text: rgb(244 244 242 / 64%);
+	--dark-border: rgb(244 244 242 / 28%);
+	--dark-grid-line: rgb(244 244 242 / 9%);
+	--primary-shadow: rgb(0 0 0 / 30%);
+	--secondary-button-surface: rgb(24 24 24 / 78%);
+	color-scheme: dark;
+	color: var(--ink-black);
+	/* beUI dark tokens; see the light set in :root. */
+	--growth-wash: #15381f;
+	--color-success: #5bd57a;
+	--warning-amber: #e4ad4f;
+	--failure-red: #ff8f88;
+	--warning-wash: #332614;
+	--failure-wash: #351b1b;
+	--failure-border: rgb(255 119 111 / 28%);
+	--background: #101114;
+	--foreground: #e6e7eb;
+	--card: #17191e;
+	--card-foreground: #e6e7eb;
+	--popover: #1c1e24;
+	--popover-foreground: #e6e7eb;
+	--primary: #a7b7ff;
+	--primary-foreground: #171c35;
+	--secondary: #202329;
+	--secondary-foreground: #e6e7eb;
+	--muted: #1b1d23;
+	--muted-foreground: #9da3ae;
+	--accent: #252e48;
+	--accent-foreground: #e6e7eb;
+	--brand-accent: #a7b7ff;
+	--brand-accent-light: #e8edf9;
+	--destructive: oklch(0.62 0.2 27);
+	--border: #2b2e36;
+	--input: #3d424d;
+	--ring: #a7b7ff;
+	--chart-1: oklch(0.72 0 0);
+	--chart-2: oklch(0.58 0 0);
+	--chart-3: oklch(0.48 0 0);
+	--chart-4: oklch(0.38 0 0);
+	--chart-5: oklch(0.3 0 0);
+	--sidebar: #14161a;
+	--sidebar-foreground: #b9bec8;
+	--sidebar-primary: #e6e7eb;
+	--sidebar-primary-foreground: #14161b;
+	--sidebar-accent: #24272e;
+	--sidebar-accent-foreground: #e6e7eb;
+	--sidebar-border: #292c33;
+	--sidebar-ring: #98a9c3;
+}
+@theme inline {
+	--font-heading: var(--font-sans);
+	--font-sans: "Geist Variable", sans-serif;
+	--color-sidebar-ring: var(--sidebar-ring);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar: var(--sidebar);
+	--color-chart-5: var(--chart-5);
+	--color-chart-4: var(--chart-4);
+	--color-chart-3: var(--chart-3);
+	--color-chart-2: var(--chart-2);
+	--color-chart-1: var(--chart-1);
+	--color-ring: var(--ring);
+	--color-input: var(--input);
+	--color-border: var(--border);
+	--color-destructive: var(--destructive);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-accent: var(--accent);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-muted: var(--muted);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-secondary: var(--secondary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary: var(--primary);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-popover: var(--popover);
+	--color-card-foreground: var(--card-foreground);
+	--color-card: var(--card);
+	--color-foreground: var(--foreground);
+	--color-background: var(--background);
+	--radius-sm: calc(var(--radius) * 0.6);
+	--radius-md: calc(var(--radius) * 0.8);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) * 1.4);
+	--radius-2xl: calc(var(--radius) * 1.8);
+	--radius-3xl: calc(var(--radius) * 2.2);
+	--radius-4xl: calc(var(--radius) * 2.6);
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+	font-family: system-ui, sans-serif;
+}
+.free-form {
+	display: grid;
+	gap: 1rem;
+	max-width: 42rem;
+}
+.free-form label {
+	display: grid;
+	gap: 0.375rem;
+}
+.free-form input:not([type="checkbox"]),
+.free-form select,
+.free-form textarea {
+	border: 1px solid var(--border);
+	border-radius: 0.5rem;
+	padding: 0.55rem 0.75rem;
+	background: var(--background);
+}
+.free-form label:has(input[type="checkbox"]) {
+	display: flex;
+	gap: 0.6rem;
+	align-items: center;
+}
+.free-form button {
+	justify-self: start;
+	background: var(--primary);
+	color: var(--primary-foreground);
+	border-radius: 0.5rem;
+	padding: 0.55rem 1rem;
+	cursor: pointer;
+}
+main a:not([class]),
+footer a:not([class]) {
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
