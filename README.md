@@ -43,6 +43,29 @@ pnpm start
 
 For deployment set APP_URL to the site's HTTPS origin, AUTH_SECRET to a random secret of at least 32 characters and DATABASE_PATH to a SQLite file on a writable persistent volume. In production mirror the origin and port through your reverse proxy. The test starts a built server with a temporary database and verifies two-user isolation and administrative support actions. To include real S3 upload and download, supply TEST_S3_ENDPOINT, TEST_S3_BUCKET, TEST_S3_KEY and TEST_S3_SECRET for a disposable bucket. To include real email verification and password reset, supply TEST_MAILPIT_URL and TEST_SMTP_PORT for a local Mailpit instance.
 
+## Deploy
+
+The production container runs the standalone Node server. Give it an HTTPS
+origin in `APP_URL`, a stable `AUTH_SECRET` of at least 32 characters, and a
+persistent volume at `/app/data`. Route HTTPS requests to the container's
+port 3000 through your reverse proxy.
+
+```sh
+docker build -t kernlift-free .
+docker run -d --name kernlift-free --restart unless-stopped \
+  --env-file .env.production --mount type=volume,src=kernlift-free-data,dst=/app/data \
+  -p 127.0.0.1:3000:3000 kernlift-free
+```
+
+On Railway, attach the persistent volume at `/app/data` to one web replica.
+Generate a public domain for port 3000 and set `APP_URL` to its HTTPS origin.
+Set `AUTH_SECRET` in the service variables and use `RAILWAY_RUN_UID=0` for
+Railway's root-owned volume. The deployment health check initializes SQLite
+and verifies the authentication provider settings can be read.
+
+After registering the first administrator, promote the account using
+`node scripts/admin.mjs <registered-user-id>` inside the running container.
+
 ## Free 功能与入口
 
 默认页面使用英文。路径前加 `/zh` 即可使用简体中文，例如 `/zh/admin/support`。

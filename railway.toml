@@ -1,0 +1,7 @@
+[build]
+builder = "DOCKERFILE"
+
+[deploy]
+healthcheckPath = "/api/core/providers"
+healthcheckTimeout = 60
+numReplicas = 1

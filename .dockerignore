@@ -1,0 +1,12 @@
+**
+!Dockerfile
+!package.json
+!pnpm-lock.yaml
+!tsconfig.json
+!vite.config.ts
+!src/
+!src/**
+!public/
+!public/**
+!scripts/
+!scripts/admin.mjs
