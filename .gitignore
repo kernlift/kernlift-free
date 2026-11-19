@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/
+*.db*
+.output/
+dist/
+.tanstack/
+.nitro/
+.DS_Store
