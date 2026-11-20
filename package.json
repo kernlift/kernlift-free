@@ -16,7 +16,8 @@
 		"test": "node --test scripts/test.mjs",
 		"check": "tsc --noEmit --noUnusedLocals --noUnusedParameters",
 		"validate:foundation": "node --import tsx --test scripts/validate/foundation.mjs",
-		"validate:all": "pnpm validate:foundation && pnpm test"
+		"validate:providers": "node --import tsx --test scripts/validate/providers.mjs",
+		"validate:all": "pnpm validate:foundation && pnpm validate:providers && pnpm test"
 	},
 	"dependencies": {
 		"@tanstack/react-router": "1.170.16",

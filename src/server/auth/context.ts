@@ -1,8 +1,16 @@
 import { betterAuth } from "better-auth";
 import { getMigrations } from "better-auth/db/migration";
 import { APIError } from "better-auth/api";
+import { oneTap } from "better-auth/plugins";
 import { createTransport } from "nodemailer";
-import { access, appURL, db, secret, settings } from "../db/repositories/core";
+import {
+	access,
+	appURL,
+	db,
+	providerFlags,
+	secret,
+	settings,
+} from "../db/repositories/core";
 
 export async function sendMail(to: string, subject: string, url: string) {
 	const s = settings(true);
@@ -25,20 +33,24 @@ let migration: Promise<void> | undefined;
 export async function getAuth() {
 	if (secret.length < 32) throw new Error("Run pnpm setup or set AUTH_SECRET.");
 	const s = settings(true);
+	const flags = providerFlags();
 	const auth = betterAuth({
 		baseURL: appURL,
 		secret,
 		database: db,
 		socialProviders: {
-			...(s.githubId && s.githubSecret
+			...(flags.github
 				? { github: { clientId: s.githubId, clientSecret: s.githubSecret } }
 				: {}),
-			...(s.googleId && s.googleSecret
+			...(flags.google
 				? { google: { clientId: s.googleId, clientSecret: s.googleSecret } }
 				: {}),
 		},
+		// Google One Tap verifies the ID token against the Google client above; the callback only
+		// exists while the switch is on and Google sign-in is configured.
+		plugins: flags.googleOneTapClientId ? [oneTap()] : [],
 		emailAndPassword: {
-			enabled: s.emailPassword !== "off",
+			enabled: flags.emailPassword,
 			requireEmailVerification: s.requireVerification === "on",
 			minPasswordLength: 10,
 			sendResetPassword: ({ user, url }) =>

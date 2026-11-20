@@ -21,6 +21,7 @@ import {
 } from "@/i18n/messages";
 import { toSafeAuthReturnPath } from "@/lib/safe-redirect";
 import { AuthForm } from "./auth-form";
+import { GoogleOneTap } from "./google-one-tap";
 
 type AuthMode = "sign-in" | "sign-up";
 
@@ -122,6 +123,7 @@ export function AuthPage({
 							{isSignUp ? copy.signUpDescription : copy.signInDescription}
 						</p>
 					</div>
+					<GoogleOneTap redirectTo={returnPath} />
 					<Tabs
 						value={mode}
 						variant="underline"

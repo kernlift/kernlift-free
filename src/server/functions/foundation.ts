@@ -1,7 +1,11 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireActor } from "../auth/guards";
-import { settings } from "../db/repositories/core";
+import {
+	providerFlags,
+	settings,
+	unreadableSecrets,
+} from "../db/repositories/core";
 import {
 	fileLibrary,
 	personalFile,
@@ -40,17 +44,22 @@ export const getUser = createServerFn()
 	});
 export const getSettings = createServerFn().handler(async () => {
 	await requireActor("config");
-	return settings();
+	return { ...settings(), unreadable: unreadableSecrets() };
 });
 export const getSetup = createServerFn().handler(async () => {
 	await requireActor("config");
 	const s = settings(true);
+	const flags = providerFlags();
+	const unreadable = unreadableSecrets();
 	return {
 		database: true,
-		emailPassword: s.emailPassword !== "off",
+		// False when a stored secret was encrypted under another AUTH_SECRET; `unreadable` names them.
+		secrets: unreadable.length === 0,
+		unreadable,
+		emailPassword: flags.emailPassword,
 		requireVerification: s.requireVerification === "on",
-		github: !!(s.githubId && s.githubSecret),
-		google: !!(s.googleId && s.googleSecret),
+		github: flags.github,
+		google: flags.google,
 		smtp: !!(s.mailFrom && s.smtpHost),
 		storage: !!(
 			s.endpoint &&

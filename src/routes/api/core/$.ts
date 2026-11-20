@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getAuth, identity } from "../../../server/auth/context";
-import { appURL, settings } from "../../../server/db/repositories/core";
+import { appURL, providerFlags } from "../../../server/db/repositories/core";
 import { read, write } from "../../../server/db/repositories/workspace";
 async function handle({ request }: { request: Request }) {
 	try {
@@ -10,13 +10,7 @@ async function handle({ request }: { request: Request }) {
 			.split("/");
 		if (section === "providers" && request.method === "GET") {
 			await getAuth();
-			const s = settings(true);
-			return Response.json({
-				emailPassword: s.emailPassword !== "off",
-				github: Boolean(s.githubId && s.githubSecret),
-				google: Boolean(s.googleId && s.googleSecret),
-				email: Boolean(s.smtpHost && s.mailFrom),
-			});
+			return Response.json(providerFlags());
 		}
 		const actor = await identity(request);
 		if (!actor) return new Response("Please sign in", { status: 401 });

@@ -24,10 +24,11 @@ Refresh the workspace and select **Administration**. A second registered account
 
 ## Connect services
 
-Provider settings live in **Administration → Auth Config, Email Config or Storage Config**. Stored passwords and secrets are encrypted with the installation's AUTH_SECRET. Keep this secret consistent across restarts and include it in your private backup.
+Provider settings live in **Administration → Auth Config, Email Config or Storage Config**. Stored passwords and secrets are encrypted with the installation's AUTH_SECRET. Keep this secret consistent across restarts and include it in your private backup. If AUTH_SECRET changes, secrets stored under the old one cannot be decrypted: the site keeps running, each affected provider counts as not configured, and **Setup checks** and the provider form name the secrets to enter again. Password sign-in stays available while no social provider can be read.
 
 - **Email** uses SMTP for verification, password recovery and support reply notifications. For local delivery run Mailpit, use its SMTP host and port, set a sender address, and inspect the Mailpit inbox. Set implicit TLS to `yes` for port 465.
 - **Google and GitHub sign-in** appear after saving a client ID and secret. Register the callback `<APP_URL>/api/auth/callback/google` or `<APP_URL>/api/auth/callback/github` with the provider.
+- **Google One Tap** shows Google's one-tap prompt on the sign-in and sign-up pages. Turn it on under Auth Config once the Google client ID and secret are saved, and add your `APP_URL` origin to the client's *Authorized JavaScript origins*. The ID token is verified against that client; new accounts are ordinary members, as with the Google button.
 - **Private files** use a private S3-compatible bucket. Enter the endpoint, region, bucket and credentials. Uploads are limited to 8 MiB. To download, the server checks ownership or the staff assets permission and returns a short-lived signed URL.
 - **Country statistics** group registered accounts by the two-letter country code entered on their profile. Accounts without a country are shown as unknown.
 - The local `admin` role has all permissions. Create a role under **Roles**, then assign it from a user detail page. Registration always creates an ordinary member.

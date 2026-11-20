@@ -1,0 +1,4 @@
+- [x] Read undecryptable provider secrets as unset and list them.
+- [x] Report unreadable secrets in the setup checks and the provider form.
+- [x] Add the Google One Tap setting, plugin, provider flag and auth page prompt.
+- [x] Cover both in `pnpm validate:foundation` and verify in the browser.

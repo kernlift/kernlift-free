@@ -107,6 +107,7 @@ export const settingsKeys = [
 	"smtpSecure",
 	"googleId",
 	"googleSecret",
+	"googleOneTap",
 	"githubId",
 	"githubSecret",
 	"bucketName",
@@ -138,19 +139,61 @@ export function settings(reveal = false) {
 			continue;
 		}
 		if (!reveal) continue;
-		const [iv, tag, data] = String(row.value).split(".");
+		output[key] = decryptSetting(String(row.value)) ?? "";
+	}
+	return output;
+}
+/**
+ * One stored secret in plain text, or null when it cannot be read: a different AUTH_SECRET, a
+ * damaged row or a value that was never encrypted. Callers see an unreadable secret as unset, so
+ * one bad credential disables its provider instead of every sign-in.
+ */
+export function decryptSetting(value: string) {
+	const [iv, tag, data] = value.split(".");
+	if (!iv || !tag || data === undefined) return null;
+	try {
 		const decipher = createDecipheriv(
 			"aes-256-gcm",
 			encryptionKey(),
 			Buffer.from(iv, "hex"),
 		);
 		decipher.setAuthTag(Buffer.from(tag, "hex"));
-		output[key] = Buffer.concat([
+		return Buffer.concat([
 			decipher.update(Buffer.from(data, "hex")),
 			decipher.final(),
 		]).toString();
+	} catch {
+		return null;
 	}
-	return output;
+}
+/** Stored secrets that cannot be decrypted with the current AUTH_SECRET. */
+export function unreadableSecrets() {
+	return db
+		.prepare("SELECT key,value FROM setting")
+		.all()
+		.filter(
+			(row) =>
+				secrets.has(String(row.key)) &&
+				decryptSetting(String(row.value)) === null,
+		)
+		.map((row) => String(row.key) as SettingKey);
+}
+/** What sign-in and the auth pages may know about the configured providers. */
+export function providerFlags() {
+	const s = settings(true);
+	const google = Boolean(s.googleId && s.googleSecret);
+	const github = Boolean(s.githubId && s.githubSecret);
+	return {
+		// Saving refuses to turn password sign-in off without a social provider; reading applies the
+		// same rule, so an unreadable OAuth secret can never leave the site with no way in.
+		emailPassword: s.emailPassword !== "off" || !(google || github),
+		github,
+		google,
+		email: Boolean(s.smtpHost && s.mailFrom),
+		// The public client ID only; One Tap needs Google sign-in to be configured.
+		googleOneTapClientId:
+			google && s.googleOneTap === "on" ? s.googleId : null,
+	};
 }
 export function saveSettings(form: FormData, actor: string) {
 	transaction(() => {

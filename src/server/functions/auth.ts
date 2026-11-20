@@ -17,6 +17,10 @@ export async function getAuthRuntimeConfig() {
 				enabled: !!config[id],
 			})),
 		],
+		/** Public Google client ID while One Tap is on; null otherwise. */
+		googleOneTapClientId: (config.googleOneTapClientId ?? null) as
+			| string
+			| null,
 	};
 }
 export async function signUpWithEmail({

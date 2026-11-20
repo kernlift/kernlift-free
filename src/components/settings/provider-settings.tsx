@@ -39,6 +39,10 @@ export function Providers({
 }) {
 	const { locale } = useI18n(),
 		zh = locale === "zh";
+	const unreadable = data.unreadable.filter(
+		(k): k is (typeof groups)[typeof group][number] =>
+			(groups[group] as readonly string[]).includes(k),
+	);
 	const names = zh
 		? { auth: "身份认证", email: "认证邮件", storage: "私有文件存储" }
 		: {
@@ -81,7 +85,30 @@ export function Providers({
 								<option value="on">{zh ? "必需" : "Required"}</option>
 							</select>
 						</label>
+						<label>
+							Google One Tap
+							<select
+								name="googleOneTap"
+								defaultValue={data.googleOneTap || "off"}
+							>
+								<option value="off">{zh ? "关闭" : "Disabled"}</option>
+								<option value="on">{zh ? "启用" : "Enabled"}</option>
+							</select>
+							<small>
+								{zh
+									? "需要先填好 Google Client ID 和 Secret；登录和注册页会弹出 Google 的一键登录。"
+									: "Needs the Google client ID and secret. Shows Google's one-tap prompt on the sign-in and sign-up pages."}
+							</small>
+						</label>
 					</>
+				)}
+				{unreadable.length > 0 && (
+					<p role="alert">
+						{zh
+							? "以下已存密钥无法用当前 AUTH_SECRET 解密，对应服务按未配置处理，请重新填写："
+							: "These stored secrets cannot be decrypted with the current AUTH_SECRET and are treated as unset. Enter them again: "}
+						{unreadable.map((k) => fieldNames[k]).join(", ")}
+					</p>
 				)}
 				{groups[group].map((k) => (
 					<Field
@@ -122,6 +149,7 @@ export function Setup({
 		zh = locale === "zh";
 	const rows = [
 		["database", zh ? "数据库" : "Database", ""],
+		["secrets", zh ? "已存密钥可解密" : "Stored secrets readable", ""],
 		["emailPassword", zh ? "邮箱密码登录" : "Email and password", "auth"],
 		["github", "GitHub OAuth", "auth"],
 		["google", "Google OAuth", "auth"],
@@ -146,7 +174,16 @@ export function Setup({
 					<li key={key} className="flex items-center justify-between py-3">
 						<span>{label}</span>
 						<span>
-							{checks[key]
+							{key === "secrets"
+								? checks.secrets
+									? zh
+										? "正常"
+										: "OK"
+									: (zh ? "无法解密：" : "Cannot decrypt: ") +
+										checks.unreadable
+											.map((k) => fieldNames[k as keyof typeof fieldNames] ?? k)
+											.join(", ")
+								: checks[key]
 								? zh
 									? "已配置"
 									: "Configured"

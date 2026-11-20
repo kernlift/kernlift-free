@@ -10,6 +10,7 @@ import {
 	permissions,
 	saveSettings,
 	settings,
+	unreadableSecrets,
 	ticketFor,
 	transaction,
 	userDirectory,
@@ -127,7 +128,7 @@ export async function read(actor: Actor, section: string, id: string) {
 			return db.prepare("SELECT * FROM audit ORDER BY id DESC LIMIT 150").all();
 		case "settings":
 			allow(actor, "config");
-			return settings();
+			return { ...settings(), unreadable: unreadableSecrets() };
 		case "setup":
 			allow(actor, "config");
 			{
@@ -135,6 +136,7 @@ export async function read(actor: Actor, section: string, id: string) {
 				return {
 					database: true,
 					authentication: true,
+					secrets: unreadableSecrets().length === 0,
 					mail: Boolean(s.mailFrom && s.smtpHost),
 					storage: Boolean(
 						s.bucketName && s.endpoint && s.accessKeyId && s.secretAccessKey,
